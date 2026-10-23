@@ -270,8 +270,8 @@ const HeroSection: React.FC = () => {
             )}
           </div>
 
-          {/* ── Right: Avatar ── */}
-          <div className="flex-shrink-0 animate-fade-in-up animation-delay-300">
+          {/* ── Right: Avatar (Visible only on Laptop/PC - hidden on Mobile) ── */}
+          <div className="hidden lg:block flex-shrink-0 animate-fade-in-up animation-delay-300">
             <div className="relative">
 
               {/* Outer spinning rings */}
