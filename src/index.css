@@ -196,6 +196,14 @@ body {
   letter-spacing: -0.02em;
 }
 
+.light .section-title {
+  color: #0f172a !important;
+}
+
+.light .section-subtitle {
+  color: #475569 !important;
+}
+
 .section-subtitle {
   margin-top: 0.75rem;
   color: theme(colors.gray.400);
@@ -511,34 +519,34 @@ body {
 }
 
 /* =============================================
-   LIGHT THEME STYLING — Complete & High Contrast
+   LIGHT THEME STYLING — Eye-Comfort & Glare-Free
    ============================================= */
 .light {
-  --color-navy-950: #ffffff;
-  --color-navy-900: #f8fafc;
-  --color-navy-800: #f1f5f9;
-  --color-navy-700: #e2e8f0;
+  --color-navy-950: #e2e8f0;
+  --color-navy-900: #f1f5f9;
+  --color-navy-800: #e2e8f0;
+  --color-navy-700: #cbd5e1;
 }
 
 .light body {
-  background-color: #f8fafc !important;
-  color: #0f172a !important;
+  background-color: #f1f5f9 !important;
+  color: #1e293b !important;
 }
 
 .light .bg-hero-gradient {
   background:
-    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(99, 102, 241, 0.08) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 60% at 90% 50%, rgba(236, 72, 153, 0.05) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 60% at 10% 80%, rgba(59, 130, 246, 0.06) 0%, transparent 60%),
-    #f8fafc !important;
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(99, 102, 241, 0.05) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 60% at 90% 50%, rgba(236, 72, 153, 0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 60% at 10% 80%, rgba(59, 130, 246, 0.04) 0%, transparent 60%),
+    #f1f5f9 !important;
 }
 
 /* Navbar */
 .light nav {
-  background: rgba(255, 255, 255, 0.95) !important;
+  background: rgba(241, 245, 249, 0.92) !important;
   backdrop-filter: blur(14px) !important;
   border-bottom: 1px solid #e2e8f0 !important;
-  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05) !important;
+  box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04) !important;
 }
 
 .light nav button {
@@ -548,7 +556,7 @@ body {
 
 .light nav button:hover {
   color: #0f172a !important;
-  background-color: #f1f5f9 !important;
+  background-color: #e2e8f0 !important;
 }
 
 /* Global text overrides for crisp light mode contrast */
@@ -591,7 +599,7 @@ body {
 }
 
 .light #home .hero-btn-secondary:hover {
-  background: #f1f5f9 !important;
+  background: #f8fafc !important;
   border-color: #94a3b8 !important;
 }
 
@@ -611,7 +619,7 @@ body {
   background: #ffffff !important;
   border: 1px solid #cbd5e1 !important;
   color: #0f172a !important;
-  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.12) !important;
+  box-shadow: 0 8px 24px -4px rgba(15, 23, 42, 0.1) !important;
   font-weight: 600 !important;
 }
 
@@ -643,7 +651,7 @@ body {
 }
 
 .light .inactive-pill:hover {
-  background-color: #f1f5f9 !important;
+  background-color: #f8fafc !important;
   color: #0f172a !important;
   border-color: #94a3b8 !important;
 }
@@ -652,13 +660,13 @@ body {
 .light .marquee-card {
   background-color: #ffffff !important;
   border: 1px solid #cbd5e1 !important;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06) !important;
 }
 
 .light .skill-card-box:hover,
 .light .marquee-card:hover {
   border-color: #94a3b8 !important;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12) !important;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.1) !important;
 }
 
 .light .skill-card-label,
@@ -668,11 +676,11 @@ body {
 }
 
 .light .marquee-fade-left {
-  background: linear-gradient(to right, #f8fafc, transparent) !important;
+  background: linear-gradient(to right, #f1f5f9, transparent) !important;
 }
 
 .light .marquee-fade-right {
-  background: linear-gradient(to left, #f8fafc, transparent) !important;
+  background: linear-gradient(to left, #f1f5f9, transparent) !important;
 }
 
 /* About Section Specifics */
@@ -758,6 +766,27 @@ body {
   border: 1px solid #cbd5e1 !important;
   color: #0f172a !important;
   font-weight: 600 !important;
+}
+
+.light .project-card-desc {
+  color: #475569 !important;
+}
+
+.light .project-tag {
+  background-color: #eff6ff !important;
+  border-color: #bfdbfe !important;
+  color: #1d4ed8 !important;
+}
+
+.light .project-repo-btn {
+  background-color: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+  color: #1e293b !important;
+}
+
+.light .project-repo-btn:hover {
+  background-color: #e2e8f0 !important;
+  color: #0f172a !important;
 }
 
 /* Contact Section & Form */

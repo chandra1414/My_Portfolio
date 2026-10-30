@@ -33,7 +33,7 @@ function App() {
   const toggleTheme = () => setIsDark(prev => !prev)
 
   return (
-    <div className={isDark ? 'dark bg-[var(--color-navy-900)] text-gray-100' : 'light bg-slate-50 text-slate-800'}>
+    <div className={isDark ? 'dark bg-[var(--color-navy-900)] text-gray-100' : 'light bg-[#f1f5f9] text-slate-800'}>
       <Navbar isDark={isDark} toggleTheme={toggleTheme} />
       <main>
         <HeroSection />
