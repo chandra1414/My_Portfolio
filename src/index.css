@@ -497,8 +497,21 @@ body {
   border-radius: 3px;
 }
 
+/* ---------- Skills Section Icons & Animation ---------- */
+.skill-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--icon-color);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.light .skill-icon-wrap {
+  color: var(--icon-color-light) !important;
+}
+
 /* =============================================
-   LIGHT THEME STYLING
+   LIGHT THEME STYLING — Complete & High Contrast
    ============================================= */
 .light {
   --color-navy-950: #ffffff;
@@ -520,15 +533,17 @@ body {
     #f8fafc !important;
 }
 
+/* Navbar */
 .light nav {
-  background: rgba(255, 255, 255, 0.88) !important;
-  backdrop-filter: blur(12px) !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(14px) !important;
   border-bottom: 1px solid #e2e8f0 !important;
   box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05) !important;
 }
 
 .light nav button {
   color: #334155 !important;
+  font-weight: 500 !important;
 }
 
 .light nav button:hover {
@@ -536,81 +551,243 @@ body {
   background-color: #f1f5f9 !important;
 }
 
+/* Global text overrides for crisp light mode contrast */
 .light .text-white {
   color: #0f172a !important;
 }
 
-.light .text-gray-300,
-.light .text-gray-400 {
-  color: #475569 !important;
-}
-
-.light .text-gray-200 {
+.light .text-gray-200,
+.light .text-gray-300 {
   color: #1e293b !important;
 }
 
+.light .text-gray-400 {
+  color: #334155 !important;
+}
+
 .light .text-gray-500 {
-  color: #64748b !important;
+  color: #475569 !important;
 }
 
-.light .bg-slate-900,
-.light .bg-slate-900\/60,
-.light .bg-slate-900\/80,
-.light .bg-slate-900\/85,
-.light .bg-slate-900\/90,
-.light .bg-slate-950,
-.light .bg-navy-800\/80 {
-  background-color: rgba(255, 255, 255, 0.95) !important;
-  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.08) !important;
+.light p {
+  color: #334155;
 }
 
-.light .border-white\/10,
-.light .border-white\/15,
-.light .border-white\/5 {
-  border-color: #e2e8f0 !important;
+/* Hero Section Specifics */
+.light #home .text-blue-400 {
+  color: #2563eb !important;
+  font-weight: 700 !important;
 }
 
-.light .bg-white\/5,
-.light .bg-white\/3,
-.light .bg-white\/2 {
-  background-color: #f1f5f9 !important;
+.light #home .animate-blink {
+  background-color: #2563eb !important;
 }
 
-.light .card {
+.light #home .hero-btn-secondary {
   background: #ffffff !important;
-  border-color: #e2e8f0 !important;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.06) !important;
+  border: 1.5px solid #cbd5e1 !important;
+  color: #0f172a !important;
+  font-weight: 600 !important;
 }
 
-.light .form-input {
+.light #home .hero-btn-secondary:hover {
+  background: #f1f5f9 !important;
+  border-color: #94a3b8 !important;
+}
+
+.light #home .hero-btn-ghost {
+  background: #eff6ff !important;
+  border: 1.5px solid #bfdbfe !important;
+  color: #1d4ed8 !important;
+  font-weight: 600 !important;
+}
+
+.light #home .hero-btn-ghost:hover {
+  background: #dbeafe !important;
+  border-color: #93c5fd !important;
+}
+
+.light #home .animate-float {
+  background: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #0f172a !important;
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.12) !important;
+  font-weight: 600 !important;
+}
+
+.light #home .text-blue-300 {
+  color: #1d4ed8 !important;
+  font-weight: 600 !important;
+}
+
+.light #home .border-blue-500\/25 {
+  border-color: #bfdbfe !important;
+  background: #eff6ff !important;
+}
+
+/* Skills Section Specifics */
+.light .skills-subheading {
+  color: #7c3aed !important;
+}
+
+.light .marquee-subheading {
+  color: #334155 !important;
+  font-weight: 800 !important;
+}
+
+.light .inactive-pill {
+  background-color: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #334155 !important;
+  font-weight: 600 !important;
+}
+
+.light .inactive-pill:hover {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+  border-color: #94a3b8 !important;
+}
+
+.light .skill-card-box,
+.light .marquee-card {
+  background-color: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08) !important;
+}
+
+.light .skill-card-box:hover,
+.light .marquee-card:hover {
+  border-color: #94a3b8 !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12) !important;
+}
+
+.light .skill-card-label,
+.light .marquee-card-label {
+  color: #0f172a !important;
+  font-weight: 700 !important;
+}
+
+.light .marquee-fade-left {
+  background: linear-gradient(to right, #f8fafc, transparent) !important;
+}
+
+.light .marquee-fade-right {
+  background: linear-gradient(to left, #f8fafc, transparent) !important;
+}
+
+/* About Section Specifics */
+.light #about .text-purple-300,
+.light #about .text-purple-400 {
+  color: #7c3aed !important;
+}
+
+.light #about .bg-purple-500\/10 {
+  background-color: #f5f3ff !important;
+  border-color: #ddd6fe !important;
+}
+
+.light #about .about-badge {
+  background-color: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.12) !important;
+}
+
+.light #about .about-badge p.text-white {
+  color: #0f172a !important;
+  font-weight: 700 !important;
+}
+
+.light #about .about-badge p.text-gray-300 {
+  color: #475569 !important;
+  font-weight: 600 !important;
+}
+
+.light #about .bg-white\/5 {
+  background-color: #f1f5f9 !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #0f172a !important;
+  font-weight: 600 !important;
+}
+
+.light #about .bg-white\/5:hover {
+  border-color: #a855f7 !important;
+  background-color: #f5f3ff !important;
+}
+
+/* Education Section Specifics */
+.light #education .bg-slate-900\/60,
+.light #education .card {
   background-color: #ffffff !important;
   border-color: #cbd5e1 !important;
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.08) !important;
+}
+
+.light #education .bg-slate-900 {
+  background-color: #ffffff !important;
+  border-color: #a855f7 !important;
+}
+
+.light #education .bg-white\/5 {
+  background-color: #f1f5f9 !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #1e293b !important;
+  font-weight: 600 !important;
+}
+
+/* Projects & Generic Cards */
+.light .card {
+  background: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.07) !important;
+}
+
+.light .card:hover {
+  border-color: #94a3b8 !important;
+  box-shadow: 0 12px 32px -4px rgba(0, 0, 0, 0.12) !important;
+}
+
+.light #projects .bg-blue-500\/10 {
+  background-color: #eff6ff !important;
+  border: 1px solid #bfdbfe !important;
+  color: #1d4ed8 !important;
+  font-weight: 600 !important;
+}
+
+.light #projects .bg-white\/5 {
+  background-color: #f1f5f9 !important;
+  border: 1px solid #cbd5e1 !important;
   color: #0f172a !important;
+  font-weight: 600 !important;
+}
+
+/* Contact Section & Form */
+.light .form-input {
+  background-color: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important;
+  color: #0f172a !important;
+  font-weight: 500 !important;
 }
 
 .light .form-input::placeholder {
   color: #94a3b8 !important;
 }
 
-.light footer {
-  background-color: #f1f5f9 !important;
-  border-top-color: #e2e8f0 !important;
+.light .form-input:focus {
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15) !important;
 }
 
-.light .hero-btn-secondary {
+.light label {
+  color: #0f172a !important;
+  font-weight: 600 !important;
+}
+
+/* Social Icon Links */
+.light .social-icon-link {
   border-color: #cbd5e1 !important;
   color: #334155 !important;
-}
-
-.light .hero-btn-secondary:hover {
-  background-color: #f1f5f9 !important;
-  color: #0f172a !important;
-}
-
-.light .social-icon-link {
-  border-color: #e2e8f0 !important;
-  color: #475569 !important;
   background-color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
 }
 
 .light .social-icon-link:hover {
@@ -619,10 +796,10 @@ body {
   background-color: #eff6ff !important;
 }
 
-.light .about-badge {
-  background-color: rgba(255, 255, 255, 0.95) !important;
-  border-color: #e2e8f0 !important;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1) !important;
+/* Footer */
+.light footer {
+  background-color: #f1f5f9 !important;
+  border-top: 1px solid #e2e8f0 !important;
 }
 
 .light ::-webkit-scrollbar-track {
