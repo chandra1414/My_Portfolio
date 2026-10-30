@@ -147,7 +147,7 @@ export const projects: Project[] = [
     tags: ["React", "Vite", "Tailwind CSS", "Node.js", "Express", "Socket.IO", "MongoDB Compass", "MongoDB Atlas", "Mongoose"],
     liveUrl: "https://halo-chat-messenger-app.vercel.app/",
     githubUrl: "", // Repository URL not verified — leave blank or add your own
-    image: "./screenshots/HaloChat.png",    // Add a screenshot path like "/screenshots/durga.png"
+    image: "/screenshots/HaloChat.png",    // Add a screenshot path like "/screenshots/durga.png"
   },
   
   {
@@ -158,7 +158,7 @@ export const projects: Project[] = [
     tags: ["Python 3","Streamlit","LangChain","Google Gemini API"],
     liveUrl: "https://bhuvan-gemini-chatbot.streamlit.app/",
     githubUrl: "", // Repository URL not verified — leave blank or add your own
-    image: "./screenshots/chatbot.png",    // Add a screenshot path like "/screenshots/durga.png"
+    image: "/screenshots/chatbot.png",    // Add a screenshot path like "/screenshots/durga.png"
   },
 
   {
@@ -169,7 +169,7 @@ export const projects: Project[] = [
     tags: ["python","django","MySQL/sqlite","Html/Bootstrap 5","JavaScript"],
     liveUrl: "https://online-test-platform-five.vercel.app/login/?next=/",
     githubUrl: "", // Repository URL not verified — leave blank or add your own
-    image: "./screenshots/codegen.png",    // Add a screenshot path like "/screenshots/durga.png"
+    image: "/screenshots/codegen.png",    // Add a screenshot path like "/screenshots/durga.png"
   },
 
   {
@@ -180,7 +180,7 @@ export const projects: Project[] = [
     tags: ["React", "Vite", "Tailwind CSS"],
     liveUrl: "https://todo-task-manager-three.vercel.app/",
     githubUrl: "", // Repository URL not verified — leave blank or add your own
-    image: "./screenshots/Todo.png",    // Add a screenshot path like "/screenshots/durga.png"
+    image: "/screenshots/Todo.png",    // Add a screenshot path like "/screenshots/durga.png"
   },
 
   {
