@@ -141,6 +141,50 @@ export const certifications: Certification[] = [];
 export const projects: Project[] = [
   {
     id: 1,
+    title: "Halo Chat Messenger Application",
+    description:
+      "HaloChat – Real-Time Chat Application A full-stack chat application featuring instant messaging, voice notes, media sharing, online status, and typing indicators using React, Node.js, Express, Socket.IO, and MongoDB.",
+    tags: ["React", "Vite", "Tailwind CSS", "Node.js", "Express", "Socket.IO", "MongoDB Compass", "MongoDB Atlas", "Mongoose"],
+    liveUrl: "https://halo-chat-messenger-app.vercel.app/",
+    githubUrl: "", // Repository URL not verified — leave blank or add your own
+    image: "./screenshots/HaloChat.png",    // Add a screenshot path like "/screenshots/durga.png"
+  },
+  
+  {
+    id: 2,
+    title: "Gemini Chatbot",
+    description:
+      "AI Chatbot – Interactive Conversational Assistant A web-based AI chatbot built with Python, Streamlit, LangChain, and Google Gemini, featuring real-time streaming responses, conversation memory, chat history, and customizable model settings.",
+    tags: ["Python 3","Streamlit","LangChain","Google Gemini API"],
+    liveUrl: "https://bhuvan-gemini-chatbot.streamlit.app/",
+    githubUrl: "", // Repository URL not verified — leave blank or add your own
+    image: "./screenshots/chatbot.png",    // Add a screenshot path like "/screenshots/durga.png"
+  },
+
+  {
+    id: 3,
+    title: "Online Test Platform",
+    description:
+      "CodeGen – Online Coding & Assessment Platform A full-stack coding and examination platform built with Python, Django, MySQL, Bootstrap, and JavaScript, featuring timed exams, MCQ and coding challenges, automatic evaluation, secure code execution, performance analytics, PDF certificates, and a live leaderboard.",
+    tags: ["python","django","MySQL/sqlite","Html/Bootstrap 5","JavaScript"],
+    liveUrl: "https://online-test-platform-five.vercel.app/login/?next=/",
+    githubUrl: "", // Repository URL not verified — leave blank or add your own
+    image: "./screenshots/codegen.png",    // Add a screenshot path like "/screenshots/durga.png"
+  },
+
+  {
+    id: 4,
+    title: "Todo Task Manager",
+    description:
+      "A clean, responsive task manager built with React, Vite, and Tailwind CSS. Add, edit, complete, delete, filter, and search tasks, with automatic browser storage.",
+    tags: ["React", "Vite", "Tailwind CSS"],
+    liveUrl: "https://todo-task-manager-three.vercel.app/",
+    githubUrl: "", // Repository URL not verified — leave blank or add your own
+    image: "./screenshots/Todo.png",    // Add a screenshot path like "/screenshots/durga.png"
+  },
+
+  {
+    id: 5,
     title: "Durga Mata Drawing Animation",
     description:
       "A creative canvas-based drawing animation project that digitally recreates the artwork of Durga Mata using animated strokes and visual effects.",
@@ -151,29 +195,7 @@ export const projects: Project[] = [
   },
 
   {
-    id: 2,
-    title: "Online Test Platform",
-    description:
-      "A creative canvas-based drawing animation project that digitally recreates the artwork of Durga Mata using animated strokes and visual effects.",
-    tags: ["python","django","MySQL/sqlite","Html/Bootstrap 5","JavaScript"],
-    liveUrl: "https://online-test-platform-five.vercel.app/login/?next=/",
-    githubUrl: "", // Repository URL not verified — leave blank or add your own
-    image: "",    // Add a screenshot path like "/screenshots/durga.png"
-  },
-
-  {
-    id: 3,
-    title: "Gemini Chatbot",
-    description:
-      "A creative canvas-based drawing animation project that digitally recreates the artwork of Durga Mata using animated strokes and visual effects.",
-    tags: ["Python 3","Streamlit","LangChain","Google Gemini API"],
-    liveUrl: "https://gemini-chatbott.onrender.com/",
-    githubUrl: "", // Repository URL not verified — leave blank or add your own
-    image: "",    // Add a screenshot path like "/screenshots/durga.png"
-  },
-
-  {
-    id: 4, 
+    id: 6, 
     title:"Photography Website",
     description:
       "A creative canvas-based drawing animation project that digitally recreates the artwork of Durga Mata using animated strokes and visual effects.",
