@@ -219,12 +219,33 @@ const HeroSection: React.FC = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden bg-[#060713]"
+      className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden bg-[#020617]"
       aria-label="Hero section"
     >
-      {/* ── Background matching Skills Section (Clean, deep obsidian #060713 with NO pink fog) ── */}
+      {/* ── Exact Ambient Floating Glow Lights from Reference Photo (venky8086.netlify.app) ── */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div
+          className="absolute top-1/4 left-1/4 w-48 sm:w-72 md:w-96 h-48 sm:h-72 md:h-96 rounded-full blur-3xl opacity-20 bg-violet-500 animate-float"
+          style={{ animationDelay: '0s' }}
+        />
+        <div
+          className="absolute bottom-1/4 right-1/4 w-40 sm:w-60 md:w-80 h-40 sm:h-60 md:h-80 rounded-full blur-3xl opacity-15 bg-pink-500 animate-float"
+          style={{ animationDelay: '-2s' }}
+        />
+        <div
+          className="absolute top-1/2 right-1/3 w-32 sm:w-48 md:w-64 h-32 sm:h-48 md:h-64 rounded-full blur-3xl opacity-15 bg-cyan-500 animate-float"
+          style={{ animationDelay: '-4s' }}
+        />
+      </div>
+
+      {/* ── Exact Subtle Cyber Grid Pattern from Reference Photo (venky8086.netlify.app) ── */}
       <div
-        className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-purple-900/10 rounded-full blur-3xl pointer-events-none"
+        className="absolute inset-0 opacity-[0.04] sm:opacity-[0.05] pointer-events-none"
+        style={{
+          backgroundImage: `linear-gradient(rgba(168,85,247,0.5) 1px, transparent 1px),
+                            linear-gradient(90deg, rgba(168,85,247,0.5) 1px, transparent 1px)`,
+          backgroundSize: '40px 40px',
+        }}
         aria-hidden="true"
       />
 

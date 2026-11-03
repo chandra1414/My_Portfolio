@@ -62,7 +62,7 @@ function App() {
       {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
 
       {/* ── 2. Main Portfolio Layout Container ── */}
-      <div className={isDark ? 'dark bg-[#060713] text-gray-100' : 'light bg-[#f1f5f9] text-slate-800'}>
+      <div className={isDark ? 'dark bg-[#020617] text-gray-100' : 'light bg-[#f1f5f9] text-slate-800'}>
         
         {/* Top Navigation Bar */}
         <Navbar isDark={isDark} toggleTheme={toggleTheme} />

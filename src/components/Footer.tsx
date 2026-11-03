@@ -56,7 +56,7 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="border-t border-white/10 bg-[#060713] pt-14 pb-8" aria-label="Footer">
+    <footer className="border-t border-white/10 bg-[#020617] pt-14 pb-8" aria-label="Footer">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main 3-Column Grid Matching Photo 4 */}
