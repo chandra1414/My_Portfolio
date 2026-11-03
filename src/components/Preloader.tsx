@@ -1,11 +1,13 @@
 // ==============================================================================
-// Preloader.tsx — సినిమాటిక్ ఓపెనింగ్ ఇంట్రో యానిమేషన్
+// Preloader.tsx — Cinematic Split-Screen & 3D Flying Letters Intro
 //
-// పోర్ట్‌ఫోలియో ఓపెన్ అవ్వగానే:
-// 1. "Bhuvan Portfolio" అక్షరాలు 3D లో స్పిన్ అవుతూ స్క్రీన్ నలుమూలల నుండి వచ్చి కలుస్తాయి.
-// 2. టైటిల్ వెనుక లైట్ బ్లూమ్ & గ్లిచ్ ఎఫెక్ట్ వస్తుంది.
-// 3. సబ్‌టైటిల్ "Python Full Stack Developer" & గ్రేడియంట్ లైన్ వస్తాయి.
-// 4. 2.45 సెకన్ల వద్ద పై భాగం & కింది భాగం షట్టర్ డోర్స్ లాగా విడిపోయి మెయిన్ సైట్‌ను చూపిస్తాయి.
+// Lifecycle of this intro animation:
+// 1. "Bhuvana Portfolio" letters fly in from 3D coordinates, spin, and snap into place.
+// 2. Light bloom radiates behind the title accompanied by a glitch effect.
+// 3. Subtitle "Python Full Stack Developer" expands with a gradient underline bar.
+// 4. At 2.45s, top and bottom curtain doors split open vertically like cinematic shutters,
+//    revealing the portfolio hero underneath seamlessly.
+// 5. At 3.35s, onComplete() fires and the intro component unmounts from the DOM.
 // ==============================================================================
 
 import React, { useEffect, useState } from 'react';
@@ -18,7 +20,7 @@ const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
   const [mounted, setMounted] = useState(true);
 
   useEffect(() => {
-    // 3.35 సెకన్లలో యానిమేషన్ పూర్తవగానే స్క్రీన్ నుండి ఇంట్రోను తీసివేస్తాం
+    // Shutter split completes by ~3.3s; unmount and clean up at 3.35s
     const timer = setTimeout(() => {
       setMounted(false);
       onComplete();
@@ -29,21 +31,21 @@ const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
 
   if (!mounted) return null;
 
-  const word1 = "Bhuvan";
+  const word1 = "Bhuvana";
   const word2 = "Portfolio";
 
   return (
     <div className="cinematic-intro" aria-hidden="true">
-      {/* పై భాగం షట్టర్ డోర్ */}
+      {/* Top half shutter door */}
       <div className="intro__half intro__half--top" />
       
-      {/* కింది భాగం షట్టర్ డోర్ */}
+      {/* Bottom half shutter door */}
       <div className="intro__half intro__half--bottom" />
       
-      {/* మధ్యలో ఉండే స్టేజ్ (లెటర్స్ మరియు సబ్‌టైటిల్) */}
+      {/* Central stage holding flying letters and subtitle */}
       <div className="intro__stage">
         <h2 className="intro__title">
-          {/* మొదటి పదం: Bhuvan */}
+          {/* First word: Bhuvana */}
           <span className="intro__word">
             {word1.split('').map((char, idx) => (
               <span
@@ -55,7 +57,7 @@ const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
               </span>
             ))}
           </span>
-          {/* రెండవ పదం: Portfolio */}
+          {/* Second word: Portfolio */}
           <span className="intro__word">
             {word2.split('').map((char, idx) => (
               <span
@@ -68,10 +70,11 @@ const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
             ))}
           </span>
         </h2>
-        {/* సబ్‌టైటిల్ */}
+        
+        {/* Role Subtitle */}
         <p className="intro__sub">Python Full Stack Developer</p>
         
-        {/* కలర్‌ఫుల్ లైన్ బార్ */}
+        {/* Animated gradient underline bar */}
         <span className="intro__bar" />
       </div>
     </div>

@@ -1,9 +1,9 @@
 // ==============================================================================
-// ScrollReveal.tsx — స్క్రోల్ చేసినప్పుడు యానిమేషన్స్ ఇచ్చే కాంపోనెంట్
+// ScrollReveal.tsx — Scroll-Triggered Entrance Animation Component
 //
-// యూజర్ పేజీని కిందకి లేదా పైకి స్క్రోల్ చేసినప్పుడు, ఆయా సెక్షన్లు లేదా కార్డులు
-// తెరపైకి రాగానే స్మూత్‌గా Fade In, Slide In అయ్యేలా బ్రౌజర్ IntersectionObserver ద్వారా
-// ఈ కాంపోనెంట్ పని చేస్తుంది.
+// This component wraps any UI element and applies smooth entrance animations
+// (Fade In, Slide In, Zoom In) whenever the user scrolls it into view.
+// Uses the browser's native IntersectionObserver API and re-triggers on every visit.
 // ==============================================================================
 
 import React, { useEffect, useRef, useState } from 'react';
@@ -25,15 +25,15 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
   className = '',
   threshold = 0.1,
 }) => {
-  // కాంపోనెంట్ స్క్రీన్‌పై కనిపిస్తోందా లేదా అనే ఫ్లాగ్
+  // State indicating whether the element is currently visible inside the viewport
   const [isVisible, setIsVisible] = useState(false);
   const elementRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // IntersectionObserver: స్క్రీన్‌పైకి ఎలిమెంట్ రాగానే గమనిస్తుంది
+    // IntersectionObserver watches when the wrapped element enters or leaves the screen
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // ప్రతీసారి యూజర్ స్క్రోల్ చేసి వచ్చినప్పుడు యానిమేషన్ రీప్లే అవుతుంది
+        // Replays animation every time the element comes into view
         if (entry.isIntersecting) {
           setIsVisible(true);
         } else {

@@ -1,125 +1,141 @@
-# 📘 Bhuvan Portfolio — పూర్తి ప్రాజెక్ట్ గైడ్ & వివరణ (Project Guide)
+# 📘 Bhuvan Portfolio — Architecture & Developer Guide
 
-ఈ డాక్యుమెంట్ మీ పోర్ట్‌ఫోలియో ప్రాజెక్ట్ ఎలా పనిచేస్తుంది, ఏ ఫైల్ దేనికి ఉపయోగపడుతుంది, మరియు భవిష్యత్తులో మీరు ఏదైనా మార్చాలి అనుకుంటే ఎలా మార్చాలో సులభంగా అర్థమయ్యేలా వివరిస్తుంది.
+Welcome to your portfolio project! This comprehensive guide walks you through the entire project architecture, the purpose of every file and folder, how state and themes work, and how you can easily update content like projects, education, skills, and resume in the future.
 
 ---
 
-## 🗂️ 1. ఫోల్డర్ల నిర్మాణం (Folder Structure)
+## 🗂️ 1. Project Directory Structure
 
 ```
 bhuvana-portfolio/
-├── public/                 📁 బ్రౌజర్‌కు నేరుగా అందించే ఫైల్స్ (Images, PDF, Icons)
-│   ├── profile.jpg         🖼️ మీ ప్రొఫైల్ ఫోటో
-│   ├── resume.pdf          📄 డౌన్‌లోడ్ చేసుకునే మీ రెస్యూమ్ PDF
-│   └── screenshots/        📸 ప్రాజెక్ట్‌ల ప్రివ్యూ ఫోటోలు (HaloChat, Gemini, etc.)
+├── public/                 📁 Static assets served directly to the browser
+│   ├── profile.jpg         🖼️ Your profile portrait picture
+│   ├── resume.pdf          📄 Downloadable & viewable Resume PDF
+│   └── screenshots/        📸 Screenshots for projects (HaloChat, Gemini, etc.)
 │
-├── src/                    📁 ప్రాజెక్ట్ యొక్క ప్రధాన సోర్స్ కోడ్
-│   ├── components/         🧩 విడివిడి సెక్షన్ల కాంపోనెంట్లు (UI Components)
-│   │   ├── Navbar.tsx             🔝 టాప్ మెనూ బార్ & థీమ్ బటన్
-│   │   ├── Preloader.tsx          🎬 సినిమాటిక్ 3D ఓపెనింగ్ ఇంట్రో స్క్రీన్
-│   │   ├── HeroSection.tsx        👋 మొదటి హోమ్ సెక్షన్ (టైప్‌రైటర్, పార్టికల్స్)
-│   │   ├── AboutSection.tsx       🙋‍♂️ మీ బయో & వివరాలు
-│   │   ├── SkillsSection.tsx      ⚡ స్కిల్స్ & ఆటో-స్క్రోలింగ్ లోగోస్
-│   │   ├── EducationSection.tsx   🎓 చదువు టైమ్‌లైన్ (Bold బ్రాంచ్)
-│   │   ├── CertificationsSection.tsx 📜 సర్టిఫికేషన్స్ సెక్షన్
-│   │   ├── ProjectsSection.tsx    💻 ప్రాజెక్ట్‌ల కార్డులు & లైవ్ లింకులు
-│   │   ├── ExperienceSection.tsx  💼 అనుభవం వివరాలు
-│   │   ├── ContactSection.tsx     📬 మెసేజ్ ఫారమ్ & సోషల్ లింకులు
-│   │   ├── Footer.tsx             🦶 పేజీ అడుగున ఉండే ఫుటర్ & Top బటన్
-│   │   └── ScrollReveal.tsx       ✨ స్క్రోల్ చేసినప్పుడు వచ్చే యానిమేషన్స్
+├── src/                    📁 Source code of the application
+│   ├── data/
+│   │   └── portfolioData.ts 💾 Central Database (Bio, Skills, Projects, Education)
 │   │
-│   ├── data/               📊 మీ డేటా అంతా ఉండే చోటు
-│   │   └── portfolioData.ts 💾 ప్రాజెక్ట్‌లు, స్కిల్స్, కాలేజీల డేటాబేస్
+│   ├── components/         🧩 Modular React UI Components
+│   │   ├── Navbar.tsx             🔝 Fixed navigation header & theme switcher
+│   │   ├── Preloader.tsx          🎬 Cinematic 3D split-screen opening intro
+│   │   ├── HeroSection.tsx        👋 Hero landing view (typewriter, particles, badges)
+│   │   ├── AboutSection.tsx       🙋‍♂️ Biography & personal summary
+│   │   ├── SkillsSection.tsx      ⚡ Technical stack & infinite marquee logo carousel
+│   │   ├── EducationSection.tsx   🎓 Academic timeline with bold specializations
+│   │   ├── CertificationsSection.tsx 📜 Professional courses & credentials
+│   │   ├── ProjectsSection.tsx    💻 Project cards with live demo buttons
+│   │   ├── ExperienceSection.tsx  💼 Work and practical project milestones
+│   │   ├── ContactSection.tsx     📬 Interactive contact form & social links
+│   │   ├── Footer.tsx             🦶 Clean footer with Back to Top button
+│   │   └── ScrollReveal.tsx       ✨ Reusable scroll entrance animation engine
 │   │
-│   ├── App.tsx             🎛️ మాస్టర్ కంట్రోలర్ (అన్ని సెక్షన్లను కలిపే ఫైల్)
-│   ├── main.tsx            🚀 React అప్లికేషన్ స్టార్టింగ్ పాయింట్
-│   └── index.css           🎨 కలర్స్, థీమ్స్, యానిమేషన్స్ CSS స్టైల్స్
+│   ├── App.tsx             🎛️ Master application controller (layout & theme)
+│   ├── main.tsx            🚀 Application bootstrap entry point
+│   └── index.css           🎨 Tailwind directives, cosmic gradients & animations
 │
-├── index.html              🌐 వెబ్‌సైట్ HTML ఫైల్ (Google Fonts, Title)
-└── package.json            📦 ప్రాజెక్ట్ లైబ్రరీలు (React, Tailwind, Lucide Icons)
+├── index.html              🌐 Root HTML document (Fonts, Meta tags & SEO)
+├── package.json            📦 Project dependencies (React, Vite, Tailwind, Lucide)
+└── vite.config.ts          ⚡ Vite build tool configuration
 ```
 
 ---
 
-## 🔍 2. ఏ ఫైల్ దేనికి ఉపయోగపడుతుంది? (File by File Purpose)
+## 🔍 2. Component & File Breakdown
 
-### 1. `src/data/portfolioData.ts` (అత్యంత ముఖ్యమైన ఫైల్)
-- **ఉపయోగం:** ఇది మీ సైట్ యొక్క డేటాబేస్ లాంటిది. 
-- మీ పేరు, బయో, కాలేజీల పేర్లు, ఊర్లు, ప్రాజెక్ట్‌ల పేర్లు, లింకులు, సోషల్ మీడియా లింకులు అన్నీ ఇందులోనే ఉంటాయి.
-- **ఎలా ఉపయోగించాలి:** భవిష్యత్తులో మీరు ఏదైనా ప్రాజెక్ట్ యాడ్ చేయాలన్నా, లేదా ఫోన్ నంబర్ / ఈమెయిల్ మార్చాలన్నా కేవలం ఈ ఒక్క ఫైల్‌ను ఎడిట్ చేస్తే చాలు!
+### 1. `src/data/portfolioData.ts` (Single Source of Truth)
+- **Purpose:** Acts as the central database for the entire website.
+- **What it holds:** Personal bio, headline, social media URLs, email, education history, skills list, and project details.
+- **Why it matters:** Whenever you want to edit your website details, you do not need to touch complex React code or CSS. Just update this single file, and every section on the website updates automatically!
 
-### 2. `src/App.tsx` (మాస్టర్ ఫైల్)
-- **ఉపయోగం:** అన్ని సెక్షన్లను ఒకదాని కింద ఒకటి అమర్చే మెయిన్ ఫైల్.
-- **ఫీచర్లు:**
-  - **Dark / Light Mode:** యూజర్ ఎంచుకున్న థీమ్‌ను గుర్తుపెట్టుకుని మార్చడం.
-  - **Intro Controller:** సైట్ ఓపెన్ అయినప్పుడు ఇంట్రో చూపించి, పూర్తికాగానే మెయిన్ సైట్‌ను డిస్‌ప్లే చేయడం.
+### 2. `src/App.tsx` (Master Controller)
+- **Purpose:** Organizes the website layout by placing components in order.
+- **Key Responsibilities:**
+  - **Theme Management:** Controls Dark Mode vs. Light Mode using React state and saves user choice in `localStorage`.
+  - **Intro Preloader:** Displays the cinematic intro on first load, then unmounts it cleanly once the split-screen animation finishes.
+  - **Layout:** Renders `<Navbar />`, `<main>` sections, and `<Footer />`.
 
-### 3. `src/components/Preloader.tsx` (సినిమాటిక్ ఇంట్రో)
-- **ఉపయోగం:** సైట్ ఓపెన్ అవ్వగానే "Bhuvan Portfolio" 3D అక్షరాలు నలుమూలల నుండి స్పిన్ అవుతూ వచ్చి కలుస్తాయి, గ్లిచ్ ఎఫెక్ట్ వస్తుంది, ఆపై షట్టర్ డోర్స్ లాగా పైకి-కిందకి విడిపోయి మెయిన్ పోర్ట్‌ఫోలియోను రివీల్ చేస్తుంది.
+### 3. `src/components/Preloader.tsx` (Cinematic Intro)
+- **Purpose:** Runs when a user first lands on the website.
+- **Animation Sequence:**
+  - Characters of **"Bhuvana"** and **"Portfolio"** fly in with 3D spins from different screen corners.
+  - Light bloom and glitch effects illuminate the title.
+  - Subtitle **"Python Full Stack Developer"** and a gradient line bar expand.
+  - At 2.45s, top and bottom curtains split vertically like cinematic shutters, seamlessly revealing the hero section underneath.
 
-### 4. `src/components/Navbar.tsx` (నావిగేషన్ బార్)
-- **ఉపయోగం:** సైట్ పైభాగంలో ఎప్పుడూ స్థిరంగా ఉంటుంది. 
-- దీనిపై క్లిక్ చేస్తే ఆయా సెక్షన్‌కు స్మూత్‌గా స్క్రోల్ అవుతుంది.
-- ఇందులో మీ పేరు **Bhuvan**, మెనూ లింకులు, మరియు Dark/Light Theme మార్చే సూర్యుడు/చంద్రుడు బటన్ ఉంటాయి.
+### 4. `src/components/Navbar.tsx` (Navigation Bar)
+- **Purpose:** Pinned at the top of the screen during scrolling.
+- **Features:**
+  - Brand name **Bhuvan** in vivid gradient text.
+  - Smooth anchor links (`#home`, `#about`, `#skills`, `#education`, `#projects`, `#contact`).
+  - Dark / Light mode toggle button (Sun & Moon icons).
+  - Responsive mobile drawer menu for phones and tablets.
 
-### 5. `src/components/HeroSection.tsx` (మొదటి హోమ్ స్క్రీన్)
-- **ఉపయోగం:** యూజర్ సైట్‌లోకి రాగానే మొదట చూసే అందమైన స్క్రీన్.
-- **ఫీచర్లు:**
-  - `useTypewriter` ద్వారా "Full-Stack Developer", "CSE-AI Graduate", "Python Developer" అంటూ ఆటోమేటిక్‌గా టైప్ అయ్యే టెక్స్ట్.
-  - వెనుక కాస్మిక్ పార్టికల్స్ తేలియాడుతుంటాయి (`ParticleCanvas`).
-  - "View Projects", "Contact Me", "Resume" బటన్లు.
-  - మీ ప్రొఫైల్ ఫోటో మరియు గ్లోయింగ్ రింగ్.
+### 5. `src/components/HeroSection.tsx` (Landing Hero)
+- **Purpose:** High-impact first impression for visitors.
+- **Features:**
+  - Animated typewriter effect displaying rotating roles ("Full-Stack Developer", "Python Developer", "CSE-AI Graduate").
+  - Animated cosmic floating particle canvas in the background.
+  - Quick action buttons ("View Projects", "Contact Me", "Resume").
+  - Circular glowing profile image card.
 
-### 6. `src/components/SkillsSection.tsx` (స్కిల్స్ విభాగం)
-- **ఉపయోగం:** మీకు తెలిసిన ప్రోగ్రామింగ్ లాంగ్వేజ్‌లు, డేటాబేస్‌లు, టూల్స్ చూపిస్తుంది.
-- **ఫీచర్లు:**
-  - కేటగిరీల ఫిల్టర్ ("All", "Frontend", "Backend", "Database", "Tools").
-  - కింద టెక్నాలజీ లోగోలు నిరంతరాయంగా ఎడమ నుండి కుడికి కదులుతూ ఉండే "Infinite Marquee" స్క్రోలింగ్.
+### 6. `src/components/SkillsSection.tsx` (Skills & Tech Stack)
+- **Purpose:** Categorizes and showcases your technical proficiencies.
+- **Features:**
+  - Filter tabs ("All", "Frontend", "Backend", "Database", "Tools & Frameworks").
+  - **Infinite Marquee:** An auto-scrolling row of tech brand logos moving continuously from left to right.
 
-### 7. `src/components/EducationSection.tsx` (చదువు వివరాలు)
-- **ఉపయోగం:** మీ విద్యార్హతల టైమ్‌లైన్.
-- **ఫీచర్లు:**
-  - మీరు చదివిన బ్రాంచ్ (ఉదా: **Computer Science and Engineering (Artificial Intelligence)**) బోల్డ్ అక్షరాలతో స్పష్టంగా కనిపిస్తుంది.
-  - ప్రగతి ఇంజనీరింగ్ కాలేజ్ (సూరంపాలెం), సిస్ట్ (మాధవపట్నం), క్యాంప్ స్కూల్ (రామచంద్రపురం) లొకేషన్లతో సహా చక్కగా చూపిస్తుంది.
+### 7. `src/components/EducationSection.tsx` (Academic Timeline)
+- **Purpose:** Displays your academic degrees in an interactive timeline.
+- **Features:**
+  - Prominently displays the specialization branch in **BOLD** (e.g., **Computer Science and Engineering (Artificial Intelligence)**).
+  - Shows colleges (Pragati Engineering College, CIST, Camp School), locations, and completion dates.
 
-### 8. `src/components/ProjectsSection.tsx` (ప్రాజెక్ట్‌ల షోకేస్)
-- **ఉపయోగం:** మీరు చేసిన లైవ్ ప్రాజెక్ట్‌లను (HaloChat, Gemini Chatbot, CodeGen Online Test Platform, Todo App) స్క్రీన్‌షాట్‌లతో సహా చూపిస్తుంది.
-- ప్రతి కార్డుకు "Live Demo" బటన్ ఉంటుంది.
+### 8. `src/components/ProjectsSection.tsx` (Projects Showcase)
+- **Purpose:** Highlights your real-world software applications (HaloChat, Gemini Chatbot, CodeGen Online Test Platform, Todo App).
+- **Features:**
+  - High-resolution preview image cropped neatly for both laptops and mobile screens.
+  - Technology tags (React, Node.js, Python, MongoDB, etc.).
+  - "Live Demo" direct buttons opening your hosted applications.
 
-### 9. `src/components/ScrollReveal.tsx` (యానిమేషన్ ఇంజిన్)
-- **ఉపయోగం:** మీరు పేజీని పైకి లేదా కిందకి స్క్రోల్ చేసిన ప్రతిసారీ సెక్షన్లు అందంగా Fade In / Slide In అయ్యేలా బ్రౌజర్ `IntersectionObserver` ద్వారా పని చేస్తుంది.
+### 9. `src/components/ScrollReveal.tsx` (Scroll Animation Engine)
+- **Purpose:** Uses the browser's native `IntersectionObserver` to trigger smooth entrance animations (Fade Up, Slide Left, Zoom In) **every time** a section enters the viewport.
 
-### 10. `src/index.css` (డిజైన్ & స్టైల్స్)
-- **ఉపయోగం:** ప్రాజెక్ట్ యొక్క రంగులు (కాస్మిక్ డార్క్ నేవీ `#050816`, లైట్ స్లేట్ `#f1f5f9`), గ్లాస్మార్ఫిజం ఎఫెక్ట్స్, గ్లోయింగ్ బార్డర్స్, మరియు కీఫ్రేమ్ యానిమేషన్స్ అన్నీ ఇందులో ఉంటాయి.
+### 10. `src/index.css` (Master Styling & Themes)
+- **Purpose:** Provides the styling system:
+  - Deep cosmic navy dark theme (`#050816`).
+  - Glare-free, high-contrast light theme (`#f1f5f9`).
+  - Keyframe animations for particle glow, marquee scrolling, and shutter split.
 
 ---
 
-## 🛠️ 3. భవిష్యత్తులో మీరు ఎలా అప్‌డేట్ చేయాలి? (How to Update)
+## 🛠️ 3. How to Update Your Portfolio
 
-| మీరు మార్చాలనుకుంటున్న విషయం | చేయాల్సిన పని |
+| Action | What to do |
 | :--- | :--- |
-| **కొత్త ప్రాజెక్ట్ యాడ్ చేయడానికి** | `src/data/portfolioData.ts` లోని `projects` అర్రేలో కొత్త ప్రాజెక్ట్ వివరాలు జోడించి, దాని ఫోటోను `public/screenshots/` లో పెట్టండి. |
-| **కొత్త స్కిల్ యాడ్ చేయడానికి** | `src/data/portfolioData.ts` లోని `skillCategories` లో పేరు యాడ్ చేయండి. |
-| **రెస్యూమ్ మార్చడానికి** | మీ కొత్త రెస్యూమ్ PDF ని `public/resume.pdf` పేరుతో రీప్లేస్ చేయండి. |
-| **ఫోటో మార్చడానికి** | మీ కొత్త ఫోటోను `public/profile.jpg` పేరుతో రీప్లేస్ చేయండి. |
-| **సోషల్ మీడియా లింకులు మార్చడానికి** | `src/data/portfolioData.ts` లోని `personalInfo` ఆబ్జెక్ట్‌లో లింక్ మార్చండి. |
+| **Add or Edit a Project** | Open `src/data/portfolioData.ts`, add a new object to the `projects` array, and put its screenshot inside `public/screenshots/`. |
+| **Update your Resume** | Replace `public/resume.pdf` with your new PDF file (keep the same name). |
+| **Update your Profile Picture** | Replace `public/profile.jpg` with your new picture (keep the same name). |
+| **Add a Skill** | Edit the `skills` array in `src/data/portfolioData.ts`. |
+| **Update Social Links or Email** | Edit the `personalInfo` object in `src/data/portfolioData.ts`. |
 
 ---
 
-## 🚀 4. ప్రాజెక్ట్‌ను రన్ చేయడం & డిప్లాయ్ చేయడం (Run & Deploy)
+## 🚀 4. Development & Deployment Workflow
 
-- **లోకల్‌గా రన్ చేయడానికి:**
+- **Run locally for development:**
   ```bash
   npm run dev
   ```
-- **ప్రాజెక్ట్ బిల్డ్ సరిచూడడానికి:**
+- **Test production build:**
   ```bash
   npm run build
   ```
-- **Vercel లో అప్‌డేట్ అవ్వడానికి:**
+- **Deploy changes to Vercel:**
   ```bash
   git add .
-  git commit -m "Your update message"
+  git commit -m "Your descriptive commit message"
   git push origin main
   ```
-  (GitHub లోకి పుష్ చేయగానే Vercel ఆటోమేటిక్‌గా రీ-డిప్లాయ్ చేసి లైవ్ సైట్‌ను అప్‌డేట్ చేస్తుంది!)
+  *(Pushing to GitHub triggers an automatic redeployment on Vercel within 1-2 minutes!)*

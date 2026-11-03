@@ -1,11 +1,12 @@
 // ==============================================================================
-// PORTFOLIO DATA (portfolioData.ts) — మీ పోర్ట్‌ఫోలియో డేటాబేస్
+// PORTFOLIO DATA (portfolioData.ts) — Central Portfolio Database
 // 
-// 💡 మీరు సైట్‌లో ఏదైనా మార్చాలి అనుకుంటే (పేరు, ప్రాజెక్ట్‌లు, కాలేజీ వివరాలు, లింకులు),
-// కేవలం ఈ ఫైల్‌లోని వివరాలను మార్చితే చాలు. సైట్ మొత్తం ఆటోమేటిక్‌గా అప్‌డేట్ అవుతుంది!
+// 💡 This is the single source of truth for your entire portfolio website.
+// To update your name, bio, skills, education, projects, or links, simply edit
+// this file. All website components automatically reflect these changes!
 // ==============================================================================
 
-// ----- TypeScript Interface డెఫినిషన్స్ (డేటా ఏ టైప్‌లో ఉండాలో సూచిస్తాయి) -----
+// ----- TypeScript Interface Definitions -----
 export interface Certification {
   name: string;
   provider: string;
@@ -50,28 +51,28 @@ export interface EducationItem {
 }
 
 // ==============================================================================
-// 1. Personal Info — మీ వ్యక్తిగత వివరాలు, సోషల్ లింకులు, బయో
+// 1. Personal Info — Bio, Headline, Social Media Links & Resume
 // ==============================================================================
 export const personalInfo = {
-  name: "S Bhuvana Chandra",
+  name: "Bhuvana Chandra",
   headline: "Aspiring Software Developer | CSE-AI Graduate",
   tagline: "Building intelligent, scalable solutions with passion.",
-  about: `I'm S Bhuvana Chandra, a Computer Science and Engineering (Artificial Intelligence) student at Pragati Engineering College. With a strong foundation in both frontend and backend development, I am passionate about creating practical software solutions that are clean, efficient, and user-friendly.
+  about: `I'm Bhuvana Chandra , a Computer Science and Engineering (Artificial Intelligence) student at Pragati Engineering College. With a strong foundation in both frontend and backend development, I am passionate about creating practical software solutions that are clean, efficient, and user-friendly.
 
 My journey in technology began during my Diploma at Chaitanya Institute of Science and Technology, where I developed a solid understanding of core programming concepts and computer systems. I am constantly expanding my skill set — exploring modern web frameworks, databases, and AI-driven technologies.
 
 I enjoy turning ideas into working software and am eager to contribute to real-world projects, collaborate with talented teams, and grow as a developer. When I'm not coding, I'm exploring new technologies and creative digital art.`,
 
-  // సోషల్ మీడియా లింకులు
+  // Social profile links
   github: "https://github.com/chandra1414",
   linkedin: "https://www.linkedin.com/in/bhuvan2004/?isSelfProfile=true",
   twitter: "https://twitter.com/bhuvan2004",
   email: "bhuvanasurampudi94@gmail.com",
 
-  // రెస్యూమ్ PDF ఫైల్ పాత్ (public/resume.pdf లో ఉంటుంది)
+  // Path to your resume PDF (stored inside the public/ folder)
   resumeUrl: "/resume.pdf",
 
-  // ప్రొఫైల్ ఫోటో పాత్ (public/profile.jpg లో ఉంటుంది)
+  // Path to your profile photo (stored inside the public/ folder)
   profilePhoto: "/profile.jpg",
 };
 
@@ -104,12 +105,12 @@ export const skills = [
 ];
 
 // ==============================================================================
-// 3. Education — చదువు వివరాలు (డిగ్రీ, బ్రాంచ్, కాలేజీ, ఊరు, సంవత్సరాలు)
+// 3. Education — Academic Timeline (Degrees, Specialization, College & Location)
 // ==============================================================================
 export const education: EducationItem[] = [
   {
     degree: "Bachelor of Technology (B.Tech)",
-    field: "Computer Science and Engineering (Artificial Intelligence)", // ఈ బ్రాంచ్ సైట్‌లో BOLD గా కనిపిస్తుంది
+    field: "Computer Science and Engineering (Artificial Intelligence)", // Rendered prominently in BOLD
     institution: "Pragati Engineering College",
     location: "Surampalem, Andhra Pradesh",
     duration: "2023 – 2026",
@@ -140,13 +141,13 @@ export const education: EducationItem[] = [
 ];
 
 // ==============================================================================
-// 4. Certifications — సర్టిఫికేషన్ వివరాలు
+// 4. Certifications — Professional Certificates & Courses
 // ==============================================================================
 export const certifications: Certification[] = [];
 
 // ==============================================================================
-// 5. Projects — మీరు తయారుచేసిన ప్రాజెక్ట్‌లు
-// ప్రతీ ప్రాజెక్ట్‌కు: title, description, tags (టెక్నాలజీలు), liveUrl (లింక్), image (ఫోటో)
+// 5. Projects — Featured Real-World Applications & Live Demos
+// Each project includes: title, description, tags, liveUrl, and screenshot image path
 // ==============================================================================
 export const projects: Project[] = [
   {
