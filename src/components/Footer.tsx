@@ -1,91 +1,144 @@
 import React from 'react';
-import { GitBranch, Link as LinkedInIcon, Mail, X as XIcon, ArrowUp, Heart } from 'lucide-react';
-import { personalInfo, navLinks } from '../data/portfolioData';
+import { FaLinkedinIn, FaWhatsapp, FaInstagram, FaFacebookF, FaGithub } from 'react-icons/fa';
+import { personalInfo } from '../data/portfolioData';
 
 const Footer: React.FC = () => {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   const handleNavClick = (href: string) => {
     const id = href.replace('#', '');
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const socials = [
-    { icon: <GitBranch size={18} />, label: 'GitHub', href: personalInfo.github },
-    { icon: <LinkedInIcon size={18} />, label: 'LinkedIn', href: personalInfo.linkedin },
-    { icon: <XIcon size={18} />, label: 'Twitter / X', href: personalInfo.twitter },
-    { icon: <Mail size={18} />, label: 'Email', href: `mailto:${personalInfo.email}` },
+  const navColumn1 = [
+    { label: 'Home', href: '#home' },
+    { label: 'Skills', href: '#skills' },
+    { label: 'Education', href: '#education' },
+    { label: 'Projects', href: '#projects' },
+  ];
+
+  const navColumn2 = [
+    { label: 'About', href: '#about' },
+    { label: 'Experience', href: '#experience' },
+    { label: 'Certifications', href: '#certifications' },
+    { label: 'Contact', href: '#contact' },
+  ];
+
+  const socialLinks = [
+    {
+      icon: <FaLinkedinIn size={16} />,
+      label: 'LinkedIn',
+      href: personalInfo.linkedin,
+      hoverColor: 'hover:border-purple-500/60 hover:text-white',
+    },
+    {
+      icon: <FaWhatsapp size={17} />,
+      label: 'WhatsApp',
+      href: 'https://wa.me/919491632168',
+      hoverColor: 'hover:border-green-500/60 hover:text-white',
+    },
+    {
+      icon: <FaInstagram size={16} />,
+      label: 'Instagram',
+      href: 'https://instagram.com',
+      hoverColor: 'hover:border-pink-500/60 hover:text-white',
+    },
+    {
+      icon: <FaFacebookF size={15} />,
+      label: 'Facebook',
+      href: 'https://facebook.com',
+      hoverColor: 'hover:border-blue-500/60 hover:text-white',
+    },
+    {
+      icon: <FaGithub size={16} />,
+      label: 'GitHub',
+      href: personalInfo.github,
+      hoverColor: 'hover:border-white/60 hover:text-white',
+    },
   ];
 
   return (
-    <footer className="border-t border-white/5 bg-navy-950/50 backdrop-blur-sm" aria-label="Footer">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-          {/* Brand */}
-          <div className="flex flex-col items-center md:items-start gap-3">
-            <div className="flex items-center gap-2">
-              <span className="font-extrabold text-xl sm:text-2xl gradient-text tracking-wide">{personalInfo.name}</span>
-            </div>
-            <p className="text-gray-500 text-sm text-center md:text-left max-w-xs">
-              {personalInfo.headline}
+    <footer className="border-t border-white/10 bg-slate-950/80 backdrop-blur-md pt-14 pb-8" aria-label="Footer">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Main 3-Column Grid Matching Photo 4 */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-14 items-start">
+          
+          {/* Column 1: Brand & Bio (Left) */}
+          <div className="md:col-span-5 flex flex-col items-start">
+            <span className="text-3xl font-black tracking-wider bg-gradient-to-r from-pink-500 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+              BHUVAN
+            </span>
+            <p className="text-gray-400 text-sm leading-relaxed mt-4 max-w-sm">
+              Aspiring Software Developer | CSE-AI Graduate, building intelligent, scalable cloud APIs and modern full-stack web applications with clean architecture.
             </p>
           </div>
 
-          {/* Nav links */}
-          <nav aria-label="Footer navigation">
-            <ul className="flex flex-wrap justify-center gap-x-6 gap-y-2">
-              {navLinks.map((link) => (
-                <li key={link.href}>
+          {/* Column 2: Navigation Links (Middle - 2 Columns) */}
+          <div className="md:col-span-4">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-gray-300 block mb-4">
+              NAVIGATION
+            </span>
+            <div className="grid grid-cols-2 gap-x-8 gap-y-2.5">
+              <div className="flex flex-col gap-2.5">
+                {navColumn1.map((link) => (
                   <button
+                    key={link.label}
                     onClick={() => handleNavClick(link.href)}
-                    className="text-gray-500 hover:text-blue-400 text-sm transition-colors duration-200"
+                    className="text-gray-400 hover:text-purple-400 text-sm text-left transition-colors duration-200"
                   >
                     {link.label}
                   </button>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-          {/* Social icons */}
-          <div className="flex items-center gap-3">
-            {socials.map((s) => (
-              <a
-                key={s.label}
-                href={s.href === '#' ? undefined : s.href}
-                target={s.href?.startsWith('mailto') ? undefined : '_blank'}
-                rel="noopener noreferrer"
-                className={`social-icon-link ${s.href === '#' ? 'opacity-30 cursor-default pointer-events-none' : ''}`}
-                aria-label={s.label}
-              >
-                {s.icon}
-              </a>
-            ))}
+                ))}
+              </div>
+              <div className="flex flex-col gap-2.5">
+                {navColumn2.map((link) => (
+                  <button
+                    key={link.label}
+                    onClick={() => handleNavClick(link.href)}
+                    className="text-gray-400 hover:text-purple-400 text-sm text-left transition-colors duration-200"
+                  >
+                    {link.label}
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
-        </div>
 
-        {/* Bottom bar */}
-        <div className="mt-10 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-gray-600 text-sm flex items-center gap-1.5">
-            © {new Date().getFullYear()} {personalInfo.name}. Built with
-            <Heart size={12} className="text-red-500 fill-red-500" aria-hidden="true" />
-            using React + TypeScript + Tailwind CSS.
-          </p>
-
-          {/* Back to top */}
-          <button
-            onClick={scrollToTop}
-            className="flex items-center gap-2 text-gray-500 hover:text-blue-400 text-sm font-medium transition-colors duration-200 group"
-            aria-label="Back to top"
-          >
-            Back to Top
-            <span className="w-7 h-7 rounded-full border border-white/10 flex items-center justify-center group-hover:border-blue-500/30 group-hover:bg-blue-500/10 transition-all">
-              <ArrowUp size={13} />
+          {/* Column 3: Connect / Social Icons (Right) */}
+          <div className="md:col-span-3 flex flex-col items-start md:items-start">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-gray-300 block mb-4">
+              CONNECT
             </span>
-          </button>
+            <div className="flex items-center gap-2.5">
+              {socialLinks.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`w-10 h-10 rounded-xl bg-slate-900/90 border border-white/10 ${s.hoverColor} flex items-center justify-center text-gray-400 transition-all shadow-md group`}
+                  aria-label={s.label}
+                >
+                  <span className="group-hover:scale-110 transition-transform">
+                    {s.icon}
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
+
         </div>
+
+        {/* Bottom Bar: Copyright & Attribution (Matching Photo 4) */}
+        <div className="border-t border-white/10 mt-12 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
+          <p>© {new Date().getFullYear()} {personalInfo.name}. All rights reserved.</p>
+          <p>
+            Built with{' '}
+            <span className="font-bold bg-gradient-to-r from-pink-500 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+              React + TypeScript + Tailwind CSS
+            </span>
+          </p>
+        </div>
+
       </div>
     </footer>
   );

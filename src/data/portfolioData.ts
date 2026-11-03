@@ -23,6 +23,8 @@ export interface Project {
   liveUrl?: string;
   githubUrl?: string;
   image?: string;
+  category?: string;
+  featured?: boolean;
 }
 
 export interface Experience {
@@ -157,8 +159,10 @@ export const projects: Project[] = [
       "HaloChat – Real-Time Chat Application A full-stack chat application featuring instant messaging, voice notes, media sharing, online status, and typing indicators using React, Node.js, Express, Socket.IO, and MongoDB.",
     tags: ["React", "Vite", "Tailwind CSS", "Node.js", "Express", "Socket.IO", "MongoDB Compass", "MongoDB Atlas", "Mongoose"],
     liveUrl: "https://halo-chat-messenger-app.vercel.app/",
-    githubUrl: "", // Repository URL not verified — leave blank or add your own
-    image: "/screenshots/HaloChat.png",    // Add a screenshot path like "/screenshots/durga.png"
+    githubUrl: "",
+    image: "/screenshots/HaloChat.png",
+    category: "Full Stack",
+    featured: true,
   },
   
   {
@@ -166,10 +170,12 @@ export const projects: Project[] = [
     title: "Gemini Chatbot",
     description:
       "AI Chatbot – Interactive Conversational Assistant A web-based AI chatbot built with Python, Streamlit, LangChain, and Google Gemini, featuring real-time streaming responses, conversation memory, chat history, and customizable model settings.",
-    tags: ["Python 3","Streamlit","LangChain","Google Gemini API"],
+    tags: ["Python 3", "Streamlit", "LangChain", "Google Gemini API"],
     liveUrl: "https://bhuvan-gemini-chatbot.streamlit.app/",
-    githubUrl: "", // Repository URL not verified — leave blank or add your own
-    image: "/screenshots/chatbot.png",    // Add a screenshot path like "/screenshots/durga.png"
+    githubUrl: "",
+    image: "/screenshots/chatbot.png",
+    category: "AI & Python",
+    featured: true,
   },
 
   {
@@ -177,10 +183,12 @@ export const projects: Project[] = [
     title: "Online Test Platform",
     description:
       "CodeGen – Online Coding & Assessment Platform A full-stack coding and examination platform built with Python, Django, MySQL, Bootstrap, and JavaScript, featuring timed exams, MCQ and coding challenges, automatic evaluation, secure code execution, performance analytics, PDF certificates, and a live leaderboard.",
-    tags: ["python","django","MySQL/sqlite","Html/Bootstrap 5","JavaScript"],
+    tags: ["python", "django", "MySQL/sqlite", "Html/Bootstrap 5", "JavaScript"],
     liveUrl: "https://online-test-platform-five.vercel.app/login/?next=/",
-    githubUrl: "", // Repository URL not verified — leave blank or add your own
-    image: "/screenshots/codegen.png",    // Add a screenshot path like "/screenshots/durga.png"
+    githubUrl: "",
+    image: "/screenshots/codegen.png",
+    category: "Full Stack",
+    featured: true,
   },
 
   {
@@ -190,8 +198,10 @@ export const projects: Project[] = [
       "A clean, responsive task manager built with React, Vite, and Tailwind CSS. Add, edit, complete, delete, filter, and search tasks, with automatic browser storage.",
     tags: ["React", "Vite", "Tailwind CSS"],
     liveUrl: "https://todo-task-manager-three.vercel.app/",
-    githubUrl: "", // Repository URL not verified — leave blank or add your own
-    image: "/screenshots/Todo.png",    // Add a screenshot path like "/screenshots/durga.png"
+    githubUrl: "",
+    image: "/screenshots/Todo.png",
+    category: "Web Development",
+    featured: false,
   },
 
   {
@@ -201,24 +211,24 @@ export const projects: Project[] = [
       "A creative canvas-based drawing animation project that digitally recreates the artwork of Durga Mata using animated strokes and visual effects.",
     tags: ["HTML5", "CSS3", "JavaScript", "Canvas API"],
     liveUrl: "https://chandra1414.github.io/Durgamata_Drawing_animation/",
-    githubUrl: "", // Repository URL not verified — leave blank or add your own
-    image: "",    // Add a screenshot path like "/screenshots/durga.png"
+    githubUrl: "",
+    image: "",
+    category: "Web Development",
+    featured: false,
   },
 
   {
     id: 6, 
-    title:"Photography Website",
+    title: "Photography Website",
     description:
-      "A creative canvas-based drawing animation project that digitally recreates the artwork of Durga Mata using animated strokes and visual effects.",
-    tags: ["Html","css","JavaScript"],
+      "A sleek modern photography showcase website with interactive image galleries, smooth transitions, responsive photo grids, and mobile-friendly layouts.",
+    tags: ["Html", "css", "JavaScript"],
     liveUrl: "https://photography-website-sqhy.vercel.app/",
-    githubUrl: "", // Repository URL not verified — leave blank or add your own
-    image: "",    // Add a screenshot path like "/screenshots/durga.png"
+    githubUrl: "",
+    image: "",
+    category: "Web Development",
+    featured: false,
   },
-
-
-  // Add more projects here:
-  // { id: 2, title: "...", description: "...", tags: [], liveUrl: "...", githubUrl: "..." },
 ];
 
 // ----- Experience -----

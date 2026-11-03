@@ -1,16 +1,18 @@
 import React, { useEffect, useRef, useState } from 'react';
 import {
-  GitBranch, ExternalLink, Download, ChevronDown,
+  FileText, MessageSquare, ChevronDown,
   Code2, Cpu, Globe, Sparkles,
 } from 'lucide-react';
+import { FaLinkedinIn, FaWhatsapp, FaInstagram, FaFacebookF, FaGithub } from 'react-icons/fa';
 import { personalInfo } from '../data/portfolioData';
 
-// ── Typing animation hook ────────────────────────────────────────────────────
+// ── Typing animation roles matching clean professional headline ─────────────
 const roles = [
-  'Full-Stack Developer 🚀',
-  'CSE-AI Graduate 🎓',
-  'Python Developer 🐍',
-  'Problem Solver 💡',
+  'Python Full Stack Developer',
+  'CSE-AI Graduate',
+  'React.js & Frontend Developer',
+  'FastAPI & Backend Engineer',
+  'Problem Solver & Software Builder',
 ];
 
 function useTypewriter(words: string[], speed = 80, pause = 1800) {
@@ -186,61 +188,101 @@ const HeroSection: React.FC = () => {
             </div>
 
             {/* Name */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight mb-4 animate-fade-in-up animation-delay-100">
-              <span className="block text-gray-400 text-2xl sm:text-3xl font-semibold mb-1">
-                Hi, I'm 👋
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight mb-3 animate-fade-in-up animation-delay-100">
+              <span className="block text-white text-3xl sm:text-4xl lg:text-5xl font-black mb-1">
+                Hi, I'm
               </span>
               <span className="hero-name-gradient">
                 {personalInfo.name}
               </span>
             </h1>
 
-            {/* Typewriter */}
-            <div className="h-10 mb-5 animate-fade-in-up animation-delay-200">
-              <p className="text-lg sm:text-xl font-semibold text-gray-200">
-                <span className="text-blue-400">&lt;</span>
-                <span className="text-white mx-1">{typed}</span>
-                <span className="inline-block w-0.5 h-5 bg-blue-400 align-middle ml-0.5 animate-blink" />
-                <span className="text-blue-400">/&gt;</span>
+            {/* Clean Modern Subtitle (Without < > tags) */}
+            <div className="min-h-[38px] mb-4 animate-fade-in-up animation-delay-200 flex items-center justify-center lg:justify-start">
+              <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-200 tracking-tight">
+                <span>{typed}</span>
+                <span className="inline-block w-0.5 h-6 bg-purple-400 align-middle ml-1 animate-blink" />
               </p>
             </div>
 
-            {/* Tagline */}
-            <p className="text-gray-400 text-base sm:text-lg max-w-lg mx-auto lg:mx-0 mb-10 leading-relaxed animate-fade-in-up animation-delay-300">
-              {personalInfo.tagline} Passionate about crafting clean code and seamless user experiences.
+            {/* Bio Matter with highlighted keywords */}
+            <p className="text-gray-400 text-sm sm:text-base lg:text-lg max-w-xl mx-auto lg:mx-0 mb-6 leading-relaxed animate-fade-in-up animation-delay-300">
+              Computer Science & Engineering (Artificial Intelligence) student at <strong className="text-gray-200 font-semibold">Pragati Engineering College</strong>, specializing in scalable <strong className="text-gray-200 font-semibold">API development</strong> and full-stack web applications using <strong className="text-gray-200 font-semibold">Python, React.js, FastAPI</strong>, and modern databases with clean, performant, and modern architecture.
             </p>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-4 justify-center lg:justify-start animate-fade-in-up animation-delay-400">
-              <button
-                onClick={() => scrollTo('projects')}
-                className="hero-btn-primary group"
-              >
-                <ExternalLink size={18} className="group-hover:rotate-12 transition-transform" />
-                View Projects
-                <span className="hero-btn-shine" />
-              </button>
-
-              <button
-                onClick={() => scrollTo('contact')}
-                className="hero-btn-secondary"
-              >
-                Contact Me
-              </button>
-
+            {/* Social Media Links Row (Exact match with Photo 1) */}
+            <div className="flex items-center gap-2.5 mb-8 justify-center lg:justify-start animate-fade-in-up animation-delay-350">
               <a
-                href={personalInfo.resumeUrl}
-                download
-                className="hero-btn-ghost"
-                aria-label="Download resume"
+                href={personalInfo.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-11 h-11 rounded-xl bg-slate-900/80 border border-white/10 hover:border-purple-500/60 hover:bg-purple-500/10 hover:text-white flex items-center justify-center text-gray-400 transition-all shadow-md group"
+                aria-label="LinkedIn"
               >
-                <Download size={17} />
-                Resume
+                <FaLinkedinIn size={18} className="group-hover:scale-110 transition-transform" />
+              </a>
+              <a
+                href="https://wa.me/919491632168"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-11 h-11 rounded-xl bg-slate-900/80 border border-white/10 hover:border-green-500/60 hover:bg-green-500/10 hover:text-white flex items-center justify-center text-gray-400 transition-all shadow-md group"
+                aria-label="WhatsApp"
+              >
+                <FaWhatsapp size={19} className="group-hover:scale-110 transition-transform" />
+              </a>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-11 h-11 rounded-xl bg-slate-900/80 border border-white/10 hover:border-pink-500/60 hover:bg-pink-500/10 hover:text-white flex items-center justify-center text-gray-400 transition-all shadow-md group"
+                aria-label="Instagram"
+              >
+                <FaInstagram size={18} className="group-hover:scale-110 transition-transform" />
+              </a>
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-11 h-11 rounded-xl bg-slate-900/80 border border-white/10 hover:border-blue-500/60 hover:bg-blue-500/10 hover:text-white flex items-center justify-center text-gray-400 transition-all shadow-md group"
+                aria-label="Facebook"
+              >
+                <FaFacebookF size={17} className="group-hover:scale-110 transition-transform" />
+              </a>
+              <a
+                href={personalInfo.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-11 h-11 rounded-xl bg-slate-900/80 border border-white/10 hover:border-white/60 hover:bg-white/10 hover:text-white flex items-center justify-center text-gray-400 transition-all shadow-md group"
+                aria-label="GitHub"
+              >
+                <FaGithub size={18} className="group-hover:scale-110 transition-transform" />
               </a>
             </div>
 
+            {/* Action Buttons (View Resume & Let's Talk matching Photo 1) */}
+            <div className="flex flex-wrap gap-4 justify-center lg:justify-start animate-fade-in-up animation-delay-400">
+              <a
+                href={personalInfo.resumeUrl}
+                download
+                className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-500 hover:to-pink-600 text-white font-semibold flex items-center gap-2.5 shadow-lg shadow-purple-900/30 transition-all duration-300 hover:scale-105 active:scale-95"
+                aria-label="View Resume"
+              >
+                <FileText size={18} />
+                View Resume
+              </a>
+
+              <button
+                onClick={() => scrollTo('contact')}
+                className="px-6 py-3.5 rounded-xl bg-slate-900/80 hover:bg-slate-800 border border-white/15 hover:border-white/30 text-white font-semibold flex items-center gap-2.5 transition-all duration-300 hover:scale-105 active:scale-95 shadow-md"
+                aria-label="Let's Talk"
+              >
+                <MessageSquare size={18} />
+                Let's Talk
+              </button>
+            </div>
+
             {/* Stats row */}
-            <div className="flex flex-wrap gap-6 mt-12 justify-center lg:justify-start animate-fade-in-up animation-delay-500">
+            <div className="flex flex-wrap gap-6 mt-10 justify-center lg:justify-start animate-fade-in-up animation-delay-500">
               {[
                 { val: '11+', label: 'Technologies' },
                 { val: '15+', label: 'Projects' },
@@ -252,21 +294,6 @@ const HeroSection: React.FC = () => {
                 </div>
               ))}
             </div>
-
-            {/* Social links */}
-            {personalInfo.github !== '#' && (
-              <div className="flex gap-3 mt-8 justify-center lg:justify-start animate-fade-in-up animation-delay-500">
-                <a
-                  href={personalInfo.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="social-icon-link"
-                  aria-label="GitHub profile"
-                >
-                  <GitBranch size={18} />
-                </a>
-              </div>
-            )}
           </div>
 
           {/* ── Right: Avatar (Visible only on Laptop/PC - hidden on Mobile) ── */}
