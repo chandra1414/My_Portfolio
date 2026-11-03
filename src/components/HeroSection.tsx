@@ -5,20 +5,22 @@
 // 1. Deep cosmic dark background (#060713) with soft ambient neon radial glows
 // 2. Clean left column:
 //    - "Available for Opportunities" status pill
-//    - "Hi, I'm 👋" and gradient name "S Bhuvana Chandra"
+//    - "Hi, I'm 👋" and single-line constant-color name "S Bhuvana Chandra"
 //    - Typewriter subtitle for roles with glowing cursor
 //    - Formatted bio with bold highlights
 //    - 5 Social media icon buttons (LinkedIn, WhatsApp, Instagram, Facebook, GitHub)
 //    - "View Resume" and "Let's Talk" CTA buttons
 //    - Quick stats summary (Technologies, Projects, Graduate status)
-// 3. Right column — Ultra-Stylish Animated Profile Card:
+// 3. Right column — Ultra-Stylish Clean Animated Profile Card:
 //    - Rotating multi-color neon laser border beam (purple, pink, cyan)
 //    - 3D interactive tilt on mouse hover
 //    - Holographic shimmer scanline gliding across the portrait
 //    - Interactive toggle switch between "✨ 3D Animated Avatar" and "📸 Real Photo"
-//    - Floating cyber tech badges with gentle float animation
-//    - "CSE-AI Graduate" badge pill with live pulsing beacon
-// 4. Scroll down indicator button
+//    - Unobstructed, clean portrait display (no floating badges on the picture)
+// 4. Floating Cyber Tech Badges (2 on left screen margin, 2 on right screen margin):
+//    - Left: "React.js & TypeScript", "Python & FastAPI"
+//    - Right: "AI & Intelligent Systems", "15+ Real-world Projects"
+// 5. Scroll down indicator button
 // ==============================================================================
 
 import React, { useState, useEffect, useRef } from 'react';
@@ -36,8 +38,7 @@ const roles = [
   'Python Full Stack Developer',
   'CSE-AI Graduate',
   'React.js & Frontend Developer',
-  'FastAPI & Backend Engineer',
-  'Problem Solver & Software Builder',
+  'Problem Solver & Tech Enthusiast',
 ];
 
 /** Custom hook for typewriter text effect */
@@ -171,7 +172,7 @@ const AnimatedProfileCard: React.FC = () => {
               </button>
             </div>
 
-            {/* Profile Image Viewport */}
+            {/* Profile Image Viewport (Clean, Uncluttered & Sharp) */}
             <div className="relative w-full flex-1 my-2 rounded-2xl overflow-hidden bg-slate-950/60 border border-white/5 flex items-center justify-center group-hover:scale-[1.02] transition-transform duration-500">
               <img
                 src={activePhoto}
@@ -195,41 +196,11 @@ const AnimatedProfileCard: React.FC = () => {
                 </span>
               </div>
               <span className="text-[11px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-300 to-cyan-400">
-                CSE-AI Graduate & Full Stack Engineer
+                CSE-AI Graduate
               </span>
             </div>
 
           </div>
-        </div>
-
-        {/* ── Floating Cyber Tech Badges with Parallax & Float ── */}
-        <div className="hidden sm:flex absolute -left-10 top-12 px-3.5 py-1.5 rounded-xl bg-slate-900/90 border border-white/10 backdrop-blur-md text-xs font-semibold text-gray-200 items-center gap-2 shadow-2xl shadow-black/70 hover:border-cyan-500/40 transition-colors animate-gentle-float">
-          <span className="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_8px_#22d3ee]" />
-          <span>React.js & TypeScript</span>
-        </div>
-
-        <div
-          className="hidden sm:flex absolute -left-12 bottom-16 px-3.5 py-1.5 rounded-xl bg-slate-900/90 border border-white/10 backdrop-blur-md text-xs font-semibold text-gray-200 items-center gap-2 shadow-2xl shadow-black/70 hover:border-emerald-500/40 transition-colors animate-gentle-float"
-          style={{ animationDelay: '1.5s' }}
-        >
-          <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399]" />
-          <span>Python & FastAPI</span>
-        </div>
-
-        <div
-          className="hidden sm:flex absolute -right-10 top-20 px-3.5 py-1.5 rounded-xl bg-slate-900/90 border border-white/10 backdrop-blur-md text-xs font-semibold text-gray-200 items-center gap-2 shadow-2xl shadow-black/70 hover:border-pink-500/40 transition-colors animate-gentle-float"
-          style={{ animationDelay: '0.8s' }}
-        >
-          <span className="w-2 h-2 rounded-full bg-pink-400 shadow-[0_0_8px_#f472b6]" />
-          <span>AI & Intelligent Systems</span>
-        </div>
-
-        <div
-          className="hidden sm:flex absolute -right-8 bottom-12 px-3.5 py-1.5 rounded-xl bg-slate-900/90 border border-white/10 backdrop-blur-md text-xs font-semibold text-gray-200 items-center gap-2 shadow-2xl shadow-black/70 hover:border-purple-500/40 transition-colors animate-gentle-float"
-          style={{ animationDelay: '2.2s' }}
-        >
-          <span className="w-2 h-2 rounded-full bg-purple-400 shadow-[0_0_8px_#a855f7]" />
-          <span>15+ Real-world Projects</span>
         </div>
 
       </div>
@@ -271,6 +242,39 @@ const HeroSection: React.FC = () => {
         aria-hidden="true"
       />
 
+      {/* ── Left Side Floating Badges (Docked to screen left margin) ── */}
+      <div className="hidden xl:flex flex-col gap-6 absolute left-6 2xl:left-12 top-1/3 z-20 pointer-events-none">
+        <div className="pointer-events-auto px-4 py-2 rounded-2xl bg-slate-900/85 border border-white/10 backdrop-blur-md text-xs font-semibold text-gray-200 flex items-center gap-2.5 shadow-2xl shadow-black/80 hover:border-cyan-500/40 transition-all hover:scale-105 animate-gentle-float">
+          <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 shadow-[0_0_10px_#22d3ee]" />
+          <span>React.js & TypeScript</span>
+        </div>
+        <div
+          className="pointer-events-auto px-4 py-2 rounded-2xl bg-slate-900/85 border border-white/10 backdrop-blur-md text-xs font-semibold text-gray-200 flex items-center gap-2.5 shadow-2xl shadow-black/80 hover:border-emerald-500/40 transition-all hover:scale-105 animate-gentle-float"
+          style={{ animationDelay: '1.5s' }}
+        >
+          <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 shadow-[0_0_10px_#34d399]" />
+          <span>Python & FastAPI</span>
+        </div>
+      </div>
+
+      {/* ── Right Side Floating Badges (Docked to screen right margin) ── */}
+      <div className="hidden xl:flex flex-col gap-6 absolute right-6 2xl:right-12 top-1/3 z-20 pointer-events-none">
+        <div
+          className="pointer-events-auto px-4 py-2 rounded-2xl bg-slate-900/85 border border-white/10 backdrop-blur-md text-xs font-semibold text-gray-200 flex items-center gap-2.5 shadow-2xl shadow-black/80 hover:border-pink-500/40 transition-all hover:scale-105 animate-gentle-float"
+          style={{ animationDelay: '0.8s' }}
+        >
+          <span className="w-2.5 h-2.5 rounded-full bg-pink-400 shadow-[0_0_10px_#f472b6]" />
+          <span>AI & Intelligent Systems</span>
+        </div>
+        <div
+          className="pointer-events-auto px-4 py-2 rounded-2xl bg-slate-900/85 border border-white/10 backdrop-blur-md text-xs font-semibold text-gray-200 flex items-center gap-2.5 shadow-2xl shadow-black/80 hover:border-purple-500/40 transition-all hover:scale-105 animate-gentle-float"
+          style={{ animationDelay: '2.2s' }}
+        >
+          <span className="w-2.5 h-2.5 rounded-full bg-purple-400 shadow-[0_0_10px_#a855f7]" />
+          <span>15+ Real-world Projects</span>
+        </div>
+      </div>
+
       {/* ── Main Content Grid ── */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-14">
@@ -287,12 +291,12 @@ const HeroSection: React.FC = () => {
               <span>Available for Opportunities</span>
             </div>
 
-            {/* Main Greeting & Name Heading */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-tight mb-2 tracking-tight">
-              <span className="block text-white text-3xl sm:text-4xl lg:text-5xl font-black mb-1 drop-shadow-[0_2px_15px_rgba(255,255,255,0.2)]">
+            {/* Main Greeting & Name Heading (Single line with reduced responsive font size & constant color) */}
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black leading-tight mb-2 tracking-tight">
+              <span className="block text-white text-xl sm:text-2xl md:text-3xl font-bold mb-1 drop-shadow-[0_2px_15px_rgba(255,255,255,0.2)]">
                 Hi, I'm
               </span>
-              <span className="hero-name-gradient drop-shadow-[0_4px_30px_rgba(168,85,247,0.5)]">
+              <span className="hero-name-gradient whitespace-nowrap block drop-shadow-[0_2px_20px_rgba(168,85,247,0.35)]">
                 {personalInfo.name}
               </span>
             </h1>
@@ -403,7 +407,7 @@ const HeroSection: React.FC = () => {
 
           </div>
 
-          {/* ════════ RIGHT COLUMN: ULTRA-STYLISH ANIMATED PROFILE CARD ════════ */}
+          {/* ════════ RIGHT COLUMN: CLEAN ANIMATED PROFILE CARD (NO OVERLAPPING BADGES) ════════ */}
           <div className="flex-1 flex justify-center items-center w-full z-20">
             <AnimatedProfileCard />
           </div>
