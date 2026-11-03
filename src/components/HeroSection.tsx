@@ -32,8 +32,7 @@ const roles = [
   'Python Full Stack Developer',
   'CSE-AI Graduate',
   'React.js & Frontend Developer',
-  'FastAPI & Backend Engineer',
-  'Problem Solver & Software Builder',
+  'Problem Solver & Tech Enthusiast',
 ];
 
 /** Custom hook for typewriter text effect */
