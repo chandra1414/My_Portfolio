@@ -5,10 +5,9 @@ import ScrollReveal from './ScrollReveal';
 
 const AboutSection: React.FC = () => {
   return (
-    <section id="about" className="section-padding relative overflow-hidden bg-cosmic-section" aria-label="About Me">
-      {/* Background glow accents */}
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none -translate-y-1/2" />
-      <div className="absolute bottom-10 right-0 w-96 h-96 bg-pink-600/10 rounded-full blur-3xl pointer-events-none" />
+    <section id="about" className="section-padding relative overflow-hidden bg-[#060713]" aria-label="About Me">
+      {/* Background matching Skills Section (Clean, subtle dark background without pink fog) */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-purple-900/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
@@ -25,16 +24,14 @@ const AboutSection: React.FC = () => {
         {/* ── Two-column layout ── */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
-          {/* ── LEFT: Photo card with slide-in opening animation ── */}
+          {/* ── LEFT: Photo card with clean dark styling (No pink fog) ── */}
           <div className="lg:col-span-5 flex justify-center">
             <ScrollReveal animation="fade-right" duration={800} delay={150}>
               <div className="relative group">
-                {/* Outer Glow */}
-                <div className="absolute -inset-3 rounded-[36px] bg-gradient-to-tr from-pink-500/30 via-purple-600/30 to-cyan-500/30 blur-2xl opacity-70 group-hover:opacity-100 transition-opacity duration-500" />
 
-                {/* Gradient Border Frame (matches reference image) */}
-                <div className="relative p-[3px] rounded-[32px] bg-gradient-to-b from-pink-500 via-purple-500 to-cyan-400 shadow-2xl shadow-purple-950/60 transition-transform duration-500 group-hover:scale-[1.01]">
-                  <div className="relative w-[280px] h-[370px] sm:w-[320px] sm:h-[420px] md:w-[340px] md:h-[450px] rounded-[29px] overflow-hidden bg-slate-950">
+                {/* Clean Border Frame without bright pink fog */}
+                <div className="relative p-[2px] rounded-[32px] bg-gradient-to-b from-purple-500/40 via-white/10 to-transparent shadow-2xl shadow-black/80 transition-transform duration-500 group-hover:scale-[1.01]">
+                  <div className="relative w-[280px] h-[370px] sm:w-[320px] sm:h-[420px] md:w-[340px] md:h-[450px] rounded-[30px] overflow-hidden bg-slate-950">
                     <img
                       src={personalInfo.profilePhoto}
                       alt={`${personalInfo.name} — Profile Photo`}

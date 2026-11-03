@@ -107,13 +107,7 @@ const AnimatedProfileCard: React.FC = () => {
   return (
     <div className="relative flex flex-col items-center justify-center select-none py-4">
 
-      {/* ── Ambient Radial Glow behind the Card ── */}
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[380px] sm:w-[440px] h-[380px] sm:h-[440px] rounded-full blur-[100px] opacity-30 bg-gradient-to-tr from-purple-600 via-pink-600 to-cyan-500 pointer-events-none"
-        aria-hidden="true"
-      />
-
-      {/* ── Main 3D Interactive Card Container ── */}
+      {/* ── Main 3D Interactive Card Container (Clean, pure dark background with NO pink fog) ── */}
       <div
         ref={cardRef}
         onMouseMove={handleMouseMove}
@@ -225,20 +219,12 @@ const HeroSection: React.FC = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden bg-hero-gradient"
+      className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden bg-[#060713]"
       aria-label="Hero section"
     >
-      {/* ── Soft Ambient Background Neon Lighting (Subtle, Clean & Identical across Mobile & Laptop) ── */}
+      {/* ── Background matching Skills Section (Clean, deep obsidian #060713 with NO pink fog) ── */}
       <div
-        className="absolute top-1/4 left-1/4 w-[340px] sm:w-[460px] h-[340px] sm:h-[460px] rounded-full blur-[100px] sm:blur-[120px] opacity-10 sm:opacity-15 bg-purple-600 pointer-events-none"
-        aria-hidden="true"
-      />
-      <div
-        className="absolute bottom-1/4 right-1/4 w-[320px] sm:w-[420px] h-[320px] sm:h-[420px] rounded-full blur-[100px] sm:blur-[120px] opacity-08 sm:opacity-12 bg-pink-600 pointer-events-none"
-        aria-hidden="true"
-      />
-      <div
-        className="absolute top-1/2 right-1/3 w-[300px] sm:w-[380px] h-[300px] sm:h-[380px] rounded-full blur-[100px] sm:blur-[120px] opacity-06 sm:opacity-10 bg-cyan-600 pointer-events-none"
+        className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-purple-900/10 rounded-full blur-3xl pointer-events-none"
         aria-hidden="true"
       />
 
