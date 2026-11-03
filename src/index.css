@@ -764,6 +764,11 @@ body {
   font-weight: 600 !important;
 }
 
+.light #education .education-branch {
+  color: #2563eb !important;
+  font-weight: 800 !important;
+}
+
 /* Projects & Generic Cards */
 .light .card {
   background: #ffffff !important;

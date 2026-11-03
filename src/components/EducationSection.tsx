@@ -74,7 +74,7 @@ const EducationSection: React.FC = () => {
                       className={`flex-1 rounded-2xl p-6 sm:p-7 bg-slate-900/60 backdrop-blur-md border border-white/10 shadow-xl transition-all duration-300 group hover:-translate-y-1 ${accent.border} ${accent.glow}`}
                     >
                       {/* Header Row: Title and Date Badge */}
-                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-1.5">
                         <h3 className="text-lg sm:text-xl font-bold text-white group-hover:text-purple-200 transition-colors">
                           {item.degree}
                         </h3>
@@ -85,6 +85,15 @@ const EducationSection: React.FC = () => {
                           {item.duration || "Passing year not provided"}
                         </span>
                       </div>
+
+                      {/* Branch / Stream (Bold) */}
+                      {item.field && (
+                        <div className="mb-2">
+                          <p className="education-branch text-sm sm:text-base font-extrabold text-blue-400 tracking-wide">
+                            {item.field}
+                          </p>
+                        </div>
+                      )}
 
                       {/* Institution Name */}
                       <div className="mb-2">

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Moon, Sun, Code2 } from 'lucide-react';
+import { Menu, X, Moon, Sun } from 'lucide-react';
 import { navLinks } from '../data/portfolioData';
 
 interface NavbarProps {
@@ -50,13 +50,10 @@ const Navbar: React.FC<NavbarProps> = ({ isDark, toggleTheme }) => {
           {/* Logo */}
           <button
             onClick={() => handleNavClick('#home')}
-            className="flex items-center gap-2 group"
+            className="flex items-center group"
             aria-label="Go to home"
           >
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-              <Code2 size={16} className="text-white" />
-            </div>
-            <span className="font-bold text-lg gradient-text">
+            <span className="font-extrabold text-xl sm:text-2xl gradient-text tracking-wide hover:opacity-90 transition-opacity">
               Bhuvan
             </span>
           </button>

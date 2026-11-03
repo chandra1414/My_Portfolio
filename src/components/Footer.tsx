@@ -1,5 +1,5 @@
 import React from 'react';
-import { GitBranch, Link as LinkedInIcon, Mail, X as XIcon, ArrowUp, Code2, Heart } from 'lucide-react';
+import { GitBranch, Link as LinkedInIcon, Mail, X as XIcon, ArrowUp, Heart } from 'lucide-react';
 import { personalInfo, navLinks } from '../data/portfolioData';
 
 const Footer: React.FC = () => {
@@ -26,10 +26,7 @@ const Footer: React.FC = () => {
           {/* Brand */}
           <div className="flex flex-col items-center md:items-start gap-3">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-                <Code2 size={16} className="text-white" />
-              </div>
-              <span className="font-bold text-white text-lg">{personalInfo.name}</span>
+              <span className="font-extrabold text-xl sm:text-2xl gradient-text tracking-wide">{personalInfo.name}</span>
             </div>
             <p className="text-gray-500 text-sm text-center md:text-left max-w-xs">
               {personalInfo.headline}
