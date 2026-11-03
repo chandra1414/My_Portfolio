@@ -97,11 +97,49 @@ body {
 }
 
 /* ---------- Hero name gradient (Constant static color, no animation) ---------- */
+.hero-name-font {
+  font-family: 'Outfit', 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
 .hero-name-gradient {
   background: linear-gradient(135deg, #c084fc 0%, #e879f9 50%, #38bdf8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* ---------- Floating vertical animation (Top to bottom continuous run) ---------- */
+@keyframes floatVerticalDown {
+  0% {
+    transform: translateY(-28px);
+  }
+  50% {
+    transform: translateY(28px);
+  }
+  100% {
+    transform: translateY(-28px);
+  }
+}
+
+@keyframes floatVerticalUp {
+  0% {
+    transform: translateY(28px);
+  }
+  50% {
+    transform: translateY(-28px);
+  }
+  100% {
+    transform: translateY(28px);
+  }
+}
+
+.animate-float-down {
+  animation: floatVerticalDown 4.5s ease-in-out infinite;
+}
+
+.animate-float-up {
+  animation: floatVerticalUp 4.8s ease-in-out infinite;
 }
 
 /* ---------- Cursor blink ---------- */

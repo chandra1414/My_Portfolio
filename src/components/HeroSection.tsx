@@ -242,33 +242,33 @@ const HeroSection: React.FC = () => {
         aria-hidden="true"
       />
 
-      {/* ── Left Side Floating Badges (Docked to screen left margin) ── */}
-      <div className="hidden xl:flex flex-col gap-6 absolute left-6 2xl:left-12 top-1/3 z-20 pointer-events-none">
-        <div className="pointer-events-auto px-4 py-2 rounded-2xl bg-slate-900/85 border border-white/10 backdrop-blur-md text-xs font-semibold text-gray-200 flex items-center gap-2.5 shadow-2xl shadow-black/80 hover:border-cyan-500/40 transition-all hover:scale-105 animate-gentle-float">
+      {/* ── Left Side Floating Badges (Floating top to bottom continuously) ── */}
+      <div className="hidden lg:flex flex-col gap-8 absolute left-3 xl:left-8 top-1/4 z-20 pointer-events-none">
+        <div className="pointer-events-auto px-4 py-2 rounded-2xl bg-slate-900/85 border border-white/10 backdrop-blur-md text-xs font-semibold text-gray-200 flex items-center gap-2.5 shadow-2xl shadow-black/80 hover:border-cyan-500/40 transition-all hover:scale-105 animate-float-down">
           <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 shadow-[0_0_10px_#22d3ee]" />
           <span>React.js & TypeScript</span>
         </div>
         <div
-          className="pointer-events-auto px-4 py-2 rounded-2xl bg-slate-900/85 border border-white/10 backdrop-blur-md text-xs font-semibold text-gray-200 flex items-center gap-2.5 shadow-2xl shadow-black/80 hover:border-emerald-500/40 transition-all hover:scale-105 animate-gentle-float"
-          style={{ animationDelay: '1.5s' }}
+          className="pointer-events-auto px-4 py-2 rounded-2xl bg-slate-900/85 border border-white/10 backdrop-blur-md text-xs font-semibold text-gray-200 flex items-center gap-2.5 shadow-2xl shadow-black/80 hover:border-emerald-500/40 transition-all hover:scale-105 animate-float-up"
+          style={{ animationDelay: '1.2s' }}
         >
           <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 shadow-[0_0_10px_#34d399]" />
           <span>Python & FastAPI</span>
         </div>
       </div>
 
-      {/* ── Right Side Floating Badges (Docked to screen right margin) ── */}
-      <div className="hidden xl:flex flex-col gap-6 absolute right-6 2xl:right-12 top-1/3 z-20 pointer-events-none">
+      {/* ── Right Side Floating Badges (Floating top to bottom continuously) ── */}
+      <div className="hidden lg:flex flex-col gap-8 absolute right-3 xl:right-8 top-1/4 z-20 pointer-events-none">
         <div
-          className="pointer-events-auto px-4 py-2 rounded-2xl bg-slate-900/85 border border-white/10 backdrop-blur-md text-xs font-semibold text-gray-200 flex items-center gap-2.5 shadow-2xl shadow-black/80 hover:border-pink-500/40 transition-all hover:scale-105 animate-gentle-float"
-          style={{ animationDelay: '0.8s' }}
+          className="pointer-events-auto px-4 py-2 rounded-2xl bg-slate-900/85 border border-white/10 backdrop-blur-md text-xs font-semibold text-gray-200 flex items-center gap-2.5 shadow-2xl shadow-black/80 hover:border-pink-500/40 transition-all hover:scale-105 animate-float-up"
+          style={{ animationDelay: '0.6s' }}
         >
           <span className="w-2.5 h-2.5 rounded-full bg-pink-400 shadow-[0_0_10px_#f472b6]" />
           <span>AI & Intelligent Systems</span>
         </div>
         <div
-          className="pointer-events-auto px-4 py-2 rounded-2xl bg-slate-900/85 border border-white/10 backdrop-blur-md text-xs font-semibold text-gray-200 flex items-center gap-2.5 shadow-2xl shadow-black/80 hover:border-purple-500/40 transition-all hover:scale-105 animate-gentle-float"
-          style={{ animationDelay: '2.2s' }}
+          className="pointer-events-auto px-4 py-2 rounded-2xl bg-slate-900/85 border border-white/10 backdrop-blur-md text-xs font-semibold text-gray-200 flex items-center gap-2.5 shadow-2xl shadow-black/80 hover:border-purple-500/40 transition-all hover:scale-105 animate-float-down"
+          style={{ animationDelay: '1.8s' }}
         >
           <span className="w-2.5 h-2.5 rounded-full bg-purple-400 shadow-[0_0_10px_#a855f7]" />
           <span>15+ Real-world Projects</span>
@@ -291,21 +291,21 @@ const HeroSection: React.FC = () => {
               <span>Available for Opportunities</span>
             </div>
 
-            {/* Main Greeting & Name Heading (Single line with reduced responsive font size & constant color) */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black leading-tight mb-2 tracking-tight">
-              <span className="block text-white text-xl sm:text-2xl md:text-3xl font-bold mb-1 drop-shadow-[0_2px_15px_rgba(255,255,255,0.2)]">
+            {/* Main Greeting & Name Heading (Single line with reduced responsive font size & premium Outfit font) */}
+            <h1 className="leading-tight mb-2 tracking-tight">
+              <span className="block text-gray-300 text-lg sm:text-xl md:text-2xl font-bold mb-1 drop-shadow-[0_2px_15px_rgba(255,255,255,0.15)]">
                 Hi, I'm
               </span>
-              <span className="hero-name-gradient whitespace-nowrap block drop-shadow-[0_2px_20px_rgba(168,85,247,0.35)]">
+              <span className="hero-name-font hero-name-gradient text-3xl sm:text-4xl md:text-5xl font-extrabold whitespace-nowrap block drop-shadow-[0_2px_20px_rgba(168,85,247,0.35)]">
                 {personalInfo.name}
               </span>
             </h1>
 
-            {/* Dynamic Typewriter Role Subtitle */}
-            <div className="min-h-[42px] mb-5 flex items-center justify-center lg:justify-start">
-              <p className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-gray-200 tracking-tight flex items-center">
+            {/* Dynamic Typewriter Role Subtitle (Refined size, smaller than name) */}
+            <div className="min-h-[34px] mb-5 flex items-center justify-center lg:justify-start">
+              <p className="text-sm sm:text-base md:text-lg font-semibold text-purple-300 tracking-wide flex items-center">
                 <span>{typed}</span>
-                <span className="inline-block w-1 h-7 bg-gradient-to-b from-purple-400 to-pink-500 align-middle ml-1.5 rounded-full animate-blink shadow-lg shadow-purple-500/80" />
+                <span className="inline-block w-0.5 h-5 bg-gradient-to-b from-purple-400 to-pink-500 align-middle ml-1.5 rounded-full animate-blink shadow-md shadow-purple-500/80" />
               </p>
             </div>
 
