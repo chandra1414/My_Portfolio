@@ -228,17 +228,17 @@ const HeroSection: React.FC = () => {
       className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden bg-hero-gradient"
       aria-label="Hero section"
     >
-      {/* ── Soft Ambient Background Neon Lighting ── */}
+      {/* ── Soft Ambient Background Neon Lighting (Visible & Vibrant across Mobile & Laptop) ── */}
       <div
-        className="absolute top-1/4 left-1/4 w-72 sm:w-96 h-72 sm:h-96 rounded-full blur-[110px] opacity-15 bg-violet-600 pointer-events-none"
+        className="absolute top-12 left-1/2 -translate-x-1/2 sm:top-1/4 sm:left-1/4 w-80 sm:w-[460px] h-80 sm:h-[460px] rounded-full blur-[80px] sm:blur-[120px] opacity-35 sm:opacity-20 bg-purple-600 pointer-events-none"
         aria-hidden="true"
       />
       <div
-        className="absolute bottom-1/4 right-1/4 w-72 sm:w-96 h-72 sm:h-96 rounded-full blur-[110px] opacity-12 bg-pink-600 pointer-events-none"
+        className="absolute top-1/2 right-0 sm:bottom-1/4 sm:right-1/4 w-72 sm:w-[420px] h-72 sm:h-[420px] rounded-full blur-[80px] sm:blur-[120px] opacity-30 sm:opacity-15 bg-pink-600 pointer-events-none"
         aria-hidden="true"
       />
       <div
-        className="absolute top-1/2 right-1/3 w-80 h-80 rounded-full blur-[120px] opacity-10 bg-cyan-600 pointer-events-none"
+        className="absolute bottom-10 left-0 sm:top-1/2 sm:right-1/3 w-72 sm:w-[380px] h-72 sm:h-[380px] rounded-full blur-[80px] sm:blur-[120px] opacity-25 sm:opacity-15 bg-cyan-600 pointer-events-none"
         aria-hidden="true"
       />
 

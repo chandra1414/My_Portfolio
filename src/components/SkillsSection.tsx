@@ -155,7 +155,7 @@ const SkillsSection: React.FC = () => {
     : allSkills.filter(s => s.category === activeCategory);
 
   return (
-    <section id="skills" className="section-padding overflow-hidden relative" aria-label="Skills">
+    <section id="skills" className="section-padding overflow-hidden relative bg-cosmic-section" aria-label="Skills">
       {/* Background radial glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-purple-900/10 rounded-full blur-3xl pointer-events-none" />
 

@@ -40,7 +40,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDark, toggleTheme }) => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-navy-900/95 backdrop-blur-md shadow-lg shadow-black/20 border-b border-white/5'
+          ? 'bg-[#060713]/95 backdrop-blur-md shadow-lg shadow-black/20 border-b border-white/5'
           : 'bg-transparent'
       }`}
       aria-label="Main navigation"
@@ -110,7 +110,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDark, toggleTheme }) => {
           isOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
-        <div className="bg-navy-900/98 backdrop-blur-md border-t border-white/5 px-4 py-3 flex flex-col gap-1">
+        <div className="bg-[#060713]/98 backdrop-blur-md border-t border-white/5 px-4 py-3 flex flex-col gap-1">
           {navLinks.map((link) => {
             const section = link.href.replace('#', '');
             const isActive = activeSection === section;

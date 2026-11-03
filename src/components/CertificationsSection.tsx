@@ -5,7 +5,7 @@ import ScrollReveal from './ScrollReveal';
 
 const CertificationsSection: React.FC = () => {
   return (
-    <section id="certifications" className="section-padding" aria-label="Certifications">
+    <section id="certifications" className="section-padding relative overflow-hidden bg-cosmic-section" aria-label="Certifications">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

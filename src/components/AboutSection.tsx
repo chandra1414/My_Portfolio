@@ -5,7 +5,7 @@ import ScrollReveal from './ScrollReveal';
 
 const AboutSection: React.FC = () => {
   return (
-    <section id="about" className="section-padding relative overflow-hidden" aria-label="About Me">
+    <section id="about" className="section-padding relative overflow-hidden bg-cosmic-section" aria-label="About Me">
       {/* Background glow accents */}
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none -translate-y-1/2" />
       <div className="absolute bottom-10 right-0 w-96 h-96 bg-pink-600/10 rounded-full blur-3xl pointer-events-none" />

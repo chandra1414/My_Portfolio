@@ -24,7 +24,7 @@ const cardAccents = [
 
 const EducationSection: React.FC = () => {
   return (
-    <section id="education" className="section-padding relative overflow-hidden" aria-label="Education">
+    <section id="education" className="section-padding relative overflow-hidden bg-cosmic-section" aria-label="Education">
       {/* Background glow accents */}
       <div className="absolute top-1/3 -left-32 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-1/4 -right-32 w-80 h-80 bg-purple-600/10 rounded-full blur-3xl pointer-events-none" />

@@ -62,7 +62,7 @@ const ContactSection: React.FC = () => {
   ];
 
   return (
-    <section id="contact" className="section-padding" aria-label="Contact">
+    <section id="contact" className="section-padding relative overflow-hidden bg-cosmic-section" aria-label="Contact">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal animation="fade-down" duration={600}>
           <div className="section-header text-center">

@@ -7,7 +7,7 @@ const ExperienceSection: React.FC = () => {
   const hasContent = experience.length > 0 || achievements.length > 0;
 
   return (
-    <section id="experience" className="section-padding" aria-label="Experience and Achievements">
+    <section id="experience" className="section-padding relative overflow-hidden bg-cosmic-section" aria-label="Experience and Achievements">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
