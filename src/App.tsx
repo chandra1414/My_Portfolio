@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import Preloader from './components/Preloader'
 import Navbar from './components/Navbar'
 import HeroSection from './components/HeroSection'
 import AboutSection from './components/AboutSection'
@@ -12,6 +13,7 @@ import Footer from './components/Footer'
 import './index.css'
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true)
   const [isDark, setIsDark] = useState(() => {
     const saved = localStorage.getItem('portfolio-theme')
     return saved !== null ? saved === 'dark' : true
@@ -33,20 +35,25 @@ function App() {
   const toggleTheme = () => setIsDark(prev => !prev)
 
   return (
-    <div className={isDark ? 'dark bg-[var(--color-navy-900)] text-gray-100' : 'light bg-[#f1f5f9] text-slate-800'}>
-      <Navbar isDark={isDark} toggleTheme={toggleTheme} />
-      <main>
-        <HeroSection />
-        <AboutSection />
-        <SkillsSection />
-        <EducationSection />
-        <CertificationsSection />
-        <ProjectsSection />
-        <ExperienceSection />
-        <ContactSection />
-      </main>
-      <Footer />
-    </div>
+    <>
+      {/* ── Stylish Intro Preloader (Venky / Bhuvan Intro Screen) ── */}
+      {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
+
+      <div className={isDark ? 'dark bg-[var(--color-navy-900)] text-gray-100' : 'light bg-[#f1f5f9] text-slate-800'}>
+        <Navbar isDark={isDark} toggleTheme={toggleTheme} />
+        <main>
+          <HeroSection />
+          <AboutSection />
+          <SkillsSection />
+          <EducationSection />
+          <CertificationsSection />
+          <ProjectsSection />
+          <ExperienceSection />
+          <ContactSection />
+        </main>
+        <Footer />
+      </div>
+    </>
   )
 }
 

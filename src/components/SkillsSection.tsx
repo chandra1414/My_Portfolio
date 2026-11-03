@@ -5,6 +5,7 @@ import {
   SiMysql, SiMongodb, SiPostgresql,
   SiDjango, SiNodedotjs, SiGit, SiTypescript
 } from 'react-icons/si';
+import ScrollReveal from './ScrollReveal';
 
 // All user skills with authentic colors for dark mode & crisp high-contrast colors for light mode
 const allSkills = [
@@ -141,118 +142,126 @@ const SkillsSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* ── Section Header ── */}
-        <div className="text-center mb-8">
-          <p className="skills-subheading text-xs sm:text-sm font-bold uppercase tracking-[0.25em] text-purple-400 mb-2">
-            WHAT I WORK WITH
-          </p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-pink-500 via-purple-400 to-indigo-400 bg-clip-text text-transparent">
-            My Skills
-          </h2>
-          <div className="mx-auto mt-2.5 w-14 h-1 rounded-full bg-gradient-to-r from-pink-500 to-purple-500" />
-        </div>
+        <ScrollReveal animation="fade-down" duration={600}>
+          <div className="text-center mb-8">
+            <p className="skills-subheading text-xs sm:text-sm font-bold uppercase tracking-[0.25em] text-purple-400 mb-2">
+              WHAT I WORK WITH
+            </p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-pink-500 via-purple-400 to-indigo-400 bg-clip-text text-transparent">
+              My Skills
+            </h2>
+            <div className="mx-auto mt-2.5 w-14 h-1 rounded-full bg-gradient-to-r from-pink-500 to-purple-500" />
+          </div>
+        </ScrollReveal>
 
         {/* ── Filter Category Pills ── */}
-        <div className="flex flex-wrap justify-center gap-2 mb-10">
-          {categories.map((cat) => {
-            const isActive = activeCategory === cat;
-            return (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`category-pill px-3.5 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 border ${
-                  isActive
-                    ? 'active-pill bg-gradient-to-r from-pink-500 to-purple-600 text-white border-transparent shadow-md shadow-purple-500/25 scale-105'
-                    : 'inactive-pill bg-slate-900/40 border-white/10 text-gray-400 hover:text-white hover:border-white/20'
-                }`}
-              >
-                {cat}
-              </button>
-            );
-          })}
-        </div>
-
-        {/* ── Top Skills Grid (Filtered) - Reduced Size ── */}
-        <div className="flex flex-wrap justify-center gap-4 sm:gap-6 max-w-4xl mx-auto mb-14 min-h-[130px]">
-          {filteredSkills.map((skill, idx) => {
-            const Icon = skill.icon;
-            return (
-              <div
-                key={`${skill.name}-${idx}`}
-                className="flex flex-col items-center justify-center group w-16 sm:w-20 cursor-pointer transition-transform duration-300 hover:-translate-y-1.5"
-                style={{ animationDelay: `${idx * 40}ms` }}
-              >
-                {/* Icon box (reduced from 72px to 52px) */}
-                <div
-                  className="skill-card-box w-12 h-12 sm:w-13 sm:h-13 rounded-xl flex items-center justify-center p-2.5 bg-slate-900/60 backdrop-blur-sm border border-white/10 shadow-md group-hover:border-white/30 transition-all duration-300"
-                  style={{
-                    boxShadow: `0 6px 18px -4px ${skill.glow}`,
-                  }}
+        <ScrollReveal animation="fade-up" duration={600} delay={150}>
+          <div className="flex flex-wrap justify-center gap-2 mb-10">
+            {categories.map((cat) => {
+              const isActive = activeCategory === cat;
+              return (
+                <button
+                  key={cat}
+                  onClick={() => setActiveCategory(cat)}
+                  className={`category-pill px-3.5 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 border ${
+                    isActive
+                      ? 'active-pill bg-gradient-to-r from-pink-500 to-purple-600 text-white border-transparent shadow-md shadow-purple-500/25 scale-105'
+                      : 'inactive-pill bg-slate-900/40 border-white/10 text-gray-400 hover:text-white hover:border-white/20'
+                  }`}
                 >
-                  <div
-                    className="skill-icon-wrap transition-transform duration-300 group-hover:scale-115"
-                    style={{
-                      '--icon-color': skill.color,
-                      '--icon-color-light': skill.lightColor,
-                    } as React.CSSProperties}
-                  >
-                    <Icon size={26} />
-                  </div>
-                </div>
-
-                {/* Skill Name */}
-                <span className="skill-card-label text-[11px] sm:text-xs font-semibold text-gray-300 group-hover:text-white mt-2 text-center leading-tight">
-                  {skill.name}
-                </span>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* ── ALL TECHNOLOGIES Horizontal Scrolling Marquee - Reduced Size ── */}
-        <div className="border-t border-white/10 pt-10">
-          {/* Subtitle */}
-          <div className="text-center mb-6">
-            <span className="marquee-subheading text-[11px] sm:text-xs font-bold uppercase tracking-[0.25em] text-gray-400">
-              ALL TECHNOLOGIES
-            </span>
+                  {cat}
+                </button>
+              );
+            })}
           </div>
+        </ScrollReveal>
 
-          {/* Marquee Track Container */}
-          <div className="relative w-full overflow-hidden py-3 group">
-            {/* Edge fade gradients for smooth infinite illusion */}
-            <div className="marquee-fade-left absolute left-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-r from-[var(--color-navy-900)] to-transparent z-10 pointer-events-none" />
-            <div className="marquee-fade-right absolute right-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-l from-[var(--color-navy-900)] to-transparent z-10 pointer-events-none" />
-
-            {/* Continuous Marquee Track */}
-            <div className="flex gap-3 sm:gap-4 w-max animate-marquee group-hover:[animation-play-state:paused]">
-              {[...allSkills, ...allSkills, ...allSkills].map((tech, idx) => {
-                const Icon = tech.icon;
-                return (
+        {/* ── Top Skills Grid (Filtered) - Reduced Size with Opening Animation ── */}
+        <ScrollReveal animation="zoom-in" duration={700} delay={250}>
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6 max-w-4xl mx-auto mb-14 min-h-[130px]">
+            {filteredSkills.map((skill, idx) => {
+              const Icon = skill.icon;
+              return (
+                <div
+                  key={`${skill.name}-${idx}`}
+                  className="flex flex-col items-center justify-center group w-16 sm:w-20 cursor-pointer transition-transform duration-300 hover:-translate-y-1.5"
+                  style={{ animationDelay: `${idx * 40}ms` }}
+                >
+                  {/* Icon box (reduced from 72px to 52px) */}
                   <div
-                    key={`marquee-${tech.name}-${idx}`}
-                    className="marquee-card w-[74px] h-[74px] sm:w-[84px] sm:h-[84px] rounded-xl flex flex-col items-center justify-center p-2 bg-slate-900/60 backdrop-blur-md border border-white/10 shadow-md transition-all duration-300 hover:scale-108 hover:-translate-y-1 hover:border-white/30 cursor-pointer flex-shrink-0 group/card"
+                    className="skill-card-box w-12 h-12 sm:w-13 sm:h-13 rounded-xl flex items-center justify-center p-2.5 bg-slate-900/60 backdrop-blur-sm border border-white/10 shadow-md group-hover:border-white/30 transition-all duration-300"
                     style={{
-                      boxShadow: `0 6px 16px -4px ${tech.glow}`,
+                      boxShadow: `0 6px 18px -4px ${skill.glow}`,
                     }}
                   >
                     <div
-                      className="skill-icon-wrap transition-transform duration-300 group-hover/card:scale-115"
+                      className="skill-icon-wrap transition-transform duration-300 group-hover:scale-115"
                       style={{
-                        '--icon-color': tech.color,
-                        '--icon-color-light': tech.lightColor,
+                        '--icon-color': skill.color,
+                        '--icon-color-light': skill.lightColor,
                       } as React.CSSProperties}
                     >
-                      <Icon size={24} />
+                      <Icon size={26} />
                     </div>
-                    <span className="marquee-card-label text-[10px] sm:text-[11px] font-semibold text-gray-300 group-hover/card:text-white mt-1.5 text-center leading-none tracking-tight">
-                      {tech.name}
-                    </span>
                   </div>
-                );
-              })}
+
+                  {/* Skill Name */}
+                  <span className="skill-card-label text-[11px] sm:text-xs font-semibold text-gray-300 group-hover:text-white mt-2 text-center leading-tight">
+                    {skill.name}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+        </ScrollReveal>
+
+        {/* ── ALL TECHNOLOGIES Horizontal Scrolling Marquee ── */}
+        <ScrollReveal animation="fade-up" duration={700} delay={350}>
+          <div className="border-t border-white/10 pt-10">
+            {/* Subtitle */}
+            <div className="text-center mb-6">
+              <span className="marquee-subheading text-[11px] sm:text-xs font-bold uppercase tracking-[0.25em] text-gray-400">
+                ALL TECHNOLOGIES
+              </span>
+            </div>
+
+            {/* Marquee Track Container */}
+            <div className="relative w-full overflow-hidden py-3 group">
+              {/* Edge fade gradients for smooth infinite illusion */}
+              <div className="marquee-fade-left absolute left-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-r from-[var(--color-navy-900)] to-transparent z-10 pointer-events-none" />
+              <div className="marquee-fade-right absolute right-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-l from-[var(--color-navy-900)] to-transparent z-10 pointer-events-none" />
+
+              {/* Continuous Marquee Track */}
+              <div className="flex gap-3 sm:gap-4 w-max animate-marquee group-hover:[animation-play-state:paused]">
+                {[...allSkills, ...allSkills, ...allSkills].map((tech, idx) => {
+                  const Icon = tech.icon;
+                  return (
+                    <div
+                      key={`marquee-${tech.name}-${idx}`}
+                      className="marquee-card w-[74px] h-[74px] sm:w-[84px] sm:h-[84px] rounded-xl flex flex-col items-center justify-center p-2 bg-slate-900/60 backdrop-blur-md border border-white/10 shadow-md transition-all duration-300 hover:scale-108 hover:-translate-y-1 hover:border-white/30 cursor-pointer flex-shrink-0 group/card"
+                      style={{
+                        boxShadow: `0 6px 16px -4px ${tech.glow}`,
+                      }}
+                    >
+                      <div
+                        className="skill-icon-wrap transition-transform duration-300 group-hover/card:scale-115"
+                        style={{
+                          '--icon-color': tech.color,
+                          '--icon-color-light': tech.lightColor,
+                        } as React.CSSProperties}
+                      >
+                        <Icon size={24} />
+                      </div>
+                      <span className="marquee-card-label text-[10px] sm:text-[11px] font-semibold text-gray-300 group-hover/card:text-white mt-1.5 text-center leading-none tracking-tight">
+                        {tech.name}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
 
       </div>
     </section>
