@@ -9,7 +9,6 @@ import { personalInfo } from '../data/portfolioData';
 const roles = [
   'Full-Stack Developer 🚀',
   'CSE-AI Graduate 🎓',
-  'React.js Enthusiast ⚛️',
   'Python Developer 🐍',
   'Problem Solver 💡',
 ];
