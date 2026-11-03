@@ -1,3 +1,13 @@
+// ==============================================================================
+// Preloader.tsx — సినిమాటిక్ ఓపెనింగ్ ఇంట్రో యానిమేషన్
+//
+// పోర్ట్‌ఫోలియో ఓపెన్ అవ్వగానే:
+// 1. "Bhuvan Portfolio" అక్షరాలు 3D లో స్పిన్ అవుతూ స్క్రీన్ నలుమూలల నుండి వచ్చి కలుస్తాయి.
+// 2. టైటిల్ వెనుక లైట్ బ్లూమ్ & గ్లిచ్ ఎఫెక్ట్ వస్తుంది.
+// 3. సబ్‌టైటిల్ "Python Full Stack Developer" & గ్రేడియంట్ లైన్ వస్తాయి.
+// 4. 2.45 సెకన్ల వద్ద పై భాగం & కింది భాగం షట్టర్ డోర్స్ లాగా విడిపోయి మెయిన్ సైట్‌ను చూపిస్తాయి.
+// ==============================================================================
+
 import React, { useEffect, useState } from 'react';
 
 interface PreloaderProps {
@@ -8,8 +18,7 @@ const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
   const [mounted, setMounted] = useState(true);
 
   useEffect(() => {
-    // Shutter split happens at 2.45s and finishes by ~3.3s.
-    // Unmount clean-up at 3.35s
+    // 3.35 సెకన్లలో యానిమేషన్ పూర్తవగానే స్క్రీన్ నుండి ఇంట్రోను తీసివేస్తాం
     const timer = setTimeout(() => {
       setMounted(false);
       onComplete();
@@ -25,10 +34,16 @@ const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
 
   return (
     <div className="cinematic-intro" aria-hidden="true">
+      {/* పై భాగం షట్టర్ డోర్ */}
       <div className="intro__half intro__half--top" />
+      
+      {/* కింది భాగం షట్టర్ డోర్ */}
       <div className="intro__half intro__half--bottom" />
+      
+      {/* మధ్యలో ఉండే స్టేజ్ (లెటర్స్ మరియు సబ్‌టైటిల్) */}
       <div className="intro__stage">
         <h2 className="intro__title">
+          {/* మొదటి పదం: Bhuvan */}
           <span className="intro__word">
             {word1.split('').map((char, idx) => (
               <span
@@ -40,6 +55,7 @@ const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
               </span>
             ))}
           </span>
+          {/* రెండవ పదం: Portfolio */}
           <span className="intro__word">
             {word2.split('').map((char, idx) => (
               <span
@@ -52,7 +68,10 @@ const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
             ))}
           </span>
         </h2>
+        {/* సబ్‌టైటిల్ */}
         <p className="intro__sub">Python Full Stack Developer</p>
+        
+        {/* కలర్‌ఫుల్ లైన్ బార్ */}
         <span className="intro__bar" />
       </div>
     </div>

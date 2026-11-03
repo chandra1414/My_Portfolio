@@ -1,8 +1,11 @@
-// ============================================================
-//  PORTFOLIO DATA — Edit this file to update your portfolio
-// ============================================================
+// ==============================================================================
+// PORTFOLIO DATA (portfolioData.ts) — మీ పోర్ట్‌ఫోలియో డేటాబేస్
+// 
+// 💡 మీరు సైట్‌లో ఏదైనా మార్చాలి అనుకుంటే (పేరు, ప్రాజెక్ట్‌లు, కాలేజీ వివరాలు, లింకులు),
+// కేవలం ఈ ఫైల్‌లోని వివరాలను మార్చితే చాలు. సైట్ మొత్తం ఆటోమేటిక్‌గా అప్‌డేట్ అవుతుంది!
+// ==============================================================================
 
-// ----- Type definitions -----
+// ----- TypeScript Interface డెఫినిషన్స్ (డేటా ఏ టైప్‌లో ఉండాలో సూచిస్తాయి) -----
 export interface Certification {
   name: string;
   provider: string;
@@ -46,7 +49,9 @@ export interface EducationItem {
   description?: string;
 }
 
-// ----- Personal Info -----
+// ==============================================================================
+// 1. Personal Info — మీ వ్యక్తిగత వివరాలు, సోషల్ లింకులు, బయో
+// ==============================================================================
 export const personalInfo = {
   name: "S Bhuvana Chandra",
   headline: "Aspiring Software Developer | CSE-AI Graduate",
@@ -57,16 +62,16 @@ My journey in technology began during my Diploma at Chaitanya Institute of Scien
 
 I enjoy turning ideas into working software and am eager to contribute to real-world projects, collaborate with talented teams, and grow as a developer. When I'm not coding, I'm exploring new technologies and creative digital art.`,
 
-  // Social links — replace # with your actual profile URLs
+  // సోషల్ మీడియా లింకులు
   github: "https://github.com/chandra1414",
-  linkedin: "https://www.linkedin.com/in/bhuvan2004/?isSelfProfile=true",      // Replace with your LinkedIn URL
-  twitter: "https://twitter.com/bhuvan2004",      // Replace with your Twitter/X URL
-  email: "bhuvanasurampudi94@gmail.com", // Replace with your email
+  linkedin: "https://www.linkedin.com/in/bhuvan2004/?isSelfProfile=true",
+  twitter: "https://twitter.com/bhuvan2004",
+  email: "bhuvanasurampudi94@gmail.com",
 
-  // Resume — place your resume PDF at public/resume.pdf
+  // రెస్యూమ్ PDF ఫైల్ పాత్ (public/resume.pdf లో ఉంటుంది)
   resumeUrl: "/resume.pdf",
 
-  // Profile photo — place your photo at public/profile.jpg
+  // ప్రొఫైల్ ఫోటో పాత్ (public/profile.jpg లో ఉంటుంది)
   profilePhoto: "/profile.jpg",
 };
 
@@ -98,11 +103,13 @@ export const skills = [
   },
 ];
 
-// ----- Education -----
+// ==============================================================================
+// 3. Education — చదువు వివరాలు (డిగ్రీ, బ్రాంచ్, కాలేజీ, ఊరు, సంవత్సరాలు)
+// ==============================================================================
 export const education: EducationItem[] = [
   {
     degree: "Bachelor of Technology (B.Tech)",
-    field: "Computer Science and Engineering (Artificial Intelligence)",
+    field: "Computer Science and Engineering (Artificial Intelligence)", // ఈ బ్రాంచ్ సైట్‌లో BOLD గా కనిపిస్తుంది
     institution: "Pragati Engineering College",
     location: "Surampalem, Andhra Pradesh",
     duration: "2023 – 2026",
@@ -132,12 +139,15 @@ export const education: EducationItem[] = [
   },
 ];
 
-// ----- Certifications -----
-// Add your real certifications below. Example:
-// { name: "React - The Complete Guide", provider: "Udemy", date: "Month Year", credentialUrl: "https://..." }
+// ==============================================================================
+// 4. Certifications — సర్టిఫికేషన్ వివరాలు
+// ==============================================================================
 export const certifications: Certification[] = [];
 
-// ----- Projects -----
+// ==============================================================================
+// 5. Projects — మీరు తయారుచేసిన ప్రాజెక్ట్‌లు
+// ప్రతీ ప్రాజెక్ట్‌కు: title, description, tags (టెక్నాలజీలు), liveUrl (లింక్), image (ఫోటో)
+// ==============================================================================
 export const projects: Project[] = [
   {
     id: 1,
