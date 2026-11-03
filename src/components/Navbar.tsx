@@ -59,21 +59,25 @@ const Navbar: React.FC<NavbarProps> = ({ isDark, toggleTheme }) => {
           </button>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden md:flex items-center gap-1 sm:gap-2">
             {navLinks.map((link) => {
               const section = link.href.replace('#', '');
+              const isActive = activeSection === section;
               return (
                 <button
                   key={link.href}
                   onClick={() => handleNavClick(link.href)}
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
-                    activeSection === section
-                      ? 'text-blue-400 bg-blue-500/10'
-                      : 'text-gray-300 hover:text-white hover:bg-white/5'
+                  className={`relative px-3.5 py-2 text-sm font-semibold transition-all duration-200 ${
+                    isActive
+                      ? 'text-purple-400'
+                      : 'text-gray-300 hover:text-white'
                   }`}
-                  aria-current={activeSection === section ? 'page' : undefined}
+                  aria-current={isActive ? 'page' : undefined}
                 >
-                  {link.label}
+                  <span>{link.label}</span>
+                  {isActive && (
+                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-[2.5px] rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-cyan-400 shadow-[0_0_8px_rgba(168,85,247,0.8)] transition-all duration-300" />
+                  )}
                 </button>
               );
             })}
@@ -109,17 +113,21 @@ const Navbar: React.FC<NavbarProps> = ({ isDark, toggleTheme }) => {
         <div className="bg-navy-900/98 backdrop-blur-md border-t border-white/5 px-4 py-3 flex flex-col gap-1">
           {navLinks.map((link) => {
             const section = link.href.replace('#', '');
+            const isActive = activeSection === section;
             return (
               <button
                 key={link.href}
                 onClick={() => handleNavClick(link.href)}
-                className={`w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
-                  activeSection === section
-                    ? 'text-blue-400 bg-blue-500/10'
+                className={`w-full text-left px-4 py-3 rounded-lg text-sm font-semibold transition-all duration-200 flex items-center justify-between ${
+                  isActive
+                    ? 'text-purple-400 bg-purple-500/10 border-l-2 border-purple-500 pl-3'
                     : 'text-gray-300 hover:text-white hover:bg-white/5'
                 }`}
               >
-                {link.label}
+                <span>{link.label}</span>
+                {isActive && (
+                  <span className="w-1.5 h-1.5 rounded-full bg-purple-400 shadow-[0_0_6px_rgba(168,85,247,0.8)]" />
+                )}
               </button>
             );
           })}
