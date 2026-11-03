@@ -28,10 +28,25 @@ const AboutSection: React.FC = () => {
           <div className="lg:col-span-5 flex justify-center">
             <ScrollReveal animation="fade-right" duration={800} delay={150}>
               <div className="relative group">
+                {/* Subtle light pink fog behind the photo (very light as requested) */}
+                <div
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 sm:w-80 h-64 sm:h-80 rounded-full blur-[80px] sm:blur-[100px] opacity-25 sm:opacity-20 bg-pink-500/30 pointer-events-none"
+                  aria-hidden="true"
+                />
 
-                {/* Clean Border Frame without bright pink fog */}
-                <div className="relative p-[2px] rounded-[32px] bg-gradient-to-b from-purple-500/40 via-white/10 to-transparent shadow-2xl shadow-black/80 transition-transform duration-500 group-hover:scale-[1.01]">
-                  <div className="relative w-[280px] h-[370px] sm:w-[320px] sm:h-[420px] md:w-[340px] md:h-[450px] rounded-[30px] overflow-hidden bg-slate-950">
+                {/* Rotating Multi-Color Neon Laser Border Beam (Matching Home Profile Pic) */}
+                <div className="relative p-[3px] rounded-[34px] sm:rounded-[38px] overflow-hidden shadow-[0_20px_50px_rgba(139,92,246,0.25)] group">
+                  {/* Continuous Rotating Conic Laser Ribbon */}
+                  <div
+                    className="absolute -inset-[100%] animate-border-beam pointer-events-none opacity-90 group-hover:opacity-100 transition-opacity"
+                    style={{
+                      background:
+                        'conic-gradient(from 0deg, transparent 15%, #a855f7 35%, #ec4899 55%, #06b6d4 75%, transparent 100%)',
+                    }}
+                  />
+
+                  {/* Inner Card Body with Photo */}
+                  <div className="relative w-[280px] h-[370px] sm:w-[320px] sm:h-[420px] md:w-[340px] md:h-[450px] rounded-[31px] sm:rounded-[35px] overflow-hidden bg-slate-950">
                     <img
                       src={personalInfo.profilePhoto}
                       alt={`${personalInfo.name} — Profile Photo`}

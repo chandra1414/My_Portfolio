@@ -1080,11 +1080,12 @@ html, body, #root {
 
 .cinematic-intro .intro__title {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  white-space: nowrap;
   justify-content: center;
-  gap: 0 0.45em;
+  gap: 0 0.35em;
   margin: 0;
-  font-size: clamp(2.3rem, 10vw, 5.8rem);
+  font-size: clamp(1.35rem, 6.8vw, 5.5rem);
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: 0.02em;
@@ -1094,6 +1095,8 @@ html, body, #root {
 
 .cinematic-intro .intro__word {
   display: inline-flex;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .cinematic-intro .intro__char {
