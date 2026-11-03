@@ -1,5 +1,5 @@
 // ==============================================================================
-// HeroSection.tsx — Clean, Stylish Hero Landing Section
+// HeroSection.tsx — Clean, Ultra-Stylish Animated Profile Hero Section
 //
 // Features:
 // 1. Deep cosmic dark background (#060713) with soft ambient neon radial glows
@@ -11,16 +11,20 @@
 //    - 5 Social media icon buttons (LinkedIn, WhatsApp, Instagram, Facebook, GitHub)
 //    - "View Resume" and "Let's Talk" CTA buttons
 //    - Quick stats summary (Technologies, Projects, Graduate status)
-// 3. Right column:
-//    - Sleek circular profile portrait with subtle glowing orbital ring
-//    - Floating tech pills (FastAPI, Python, React.js, Node.js)
-//    - "CSE-AI Graduate" badge pill
+// 3. Right column — Ultra-Stylish Animated Profile Card:
+//    - Rotating multi-color neon laser border beam (purple, pink, cyan)
+//    - 3D interactive tilt on mouse hover
+//    - Holographic shimmer scanline gliding across the portrait
+//    - Interactive toggle switch between "✨ 3D Animated Avatar" and "📸 Real Photo"
+//    - Floating cyber tech badges with gentle float animation
+//    - "CSE-AI Graduate" badge pill with live pulsing beacon
 // 4. Scroll down indicator button
 // ==============================================================================
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
-  FileText, MessageSquare, ChevronDown, Sparkles
+  FileText, MessageSquare, ChevronDown, Sparkles,
+  Camera, Wand2
 } from 'lucide-react';
 import {
   FaLinkedinIn, FaWhatsapp, FaInstagram, FaFacebookF, FaGithub
@@ -32,7 +36,8 @@ const roles = [
   'Python Full Stack Developer',
   'CSE-AI Graduate',
   'React.js & Frontend Developer',
-  'Problem Solver & Tech Enthusiast',
+  'FastAPI & Backend Engineer',
+  'Problem Solver & Software Builder',
 ];
 
 /** Custom hook for typewriter text effect */
@@ -68,7 +73,177 @@ function useTypewriter(words: string[], speed = 80, pause = 1800) {
   return displayed;
 }
 
-// ── Hero Section Component ───────────────────────────────────────────────────
+// ── Stylish Animated Profile Avatar Card Component ───────────────────────────
+const AnimatedProfileCard: React.FC = () => {
+  // Toggle state: true = stylish 3D animated avatar, false = real photo
+  const [useAnimatedAvatar, setUseAnimatedAvatar] = useState(true);
+  const [tilt, setTilt] = useState({ x: 0, y: 0 });
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  // Mouse tilt tracking
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current || window.innerWidth < 1024) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    const mouseX = e.clientX - centerX;
+    const mouseY = e.clientY - centerY;
+
+    setTilt({
+      x: (mouseX / (rect.width / 2)) * 8,
+      y: -(mouseY / (rect.height / 2)) * 8,
+    });
+  };
+
+  const handleMouseLeave = () => {
+    setTilt({ x: 0, y: 0 });
+  };
+
+  const activePhoto = useAnimatedAvatar
+    ? '/animated-avatar.jpg'
+    : personalInfo.profilePhoto;
+
+  return (
+    <div className="relative flex flex-col items-center justify-center select-none py-4">
+
+      {/* ── Ambient Radial Glow behind the Card ── */}
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[380px] sm:w-[440px] h-[380px] sm:h-[440px] rounded-full blur-[100px] opacity-30 bg-gradient-to-tr from-purple-600 via-pink-600 to-cyan-500 pointer-events-none"
+        aria-hidden="true"
+      />
+
+      {/* ── Main 3D Interactive Card Container ── */}
+      <div
+        ref={cardRef}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        className="relative transition-transform duration-300 ease-out"
+        style={{
+          perspective: 1000,
+          transform: `rotateY(${tilt.x}deg) rotateX(${tilt.y}deg)`,
+        }}
+      >
+        {/* Outer Rotating Multi-Color Neon Laser Border Beam */}
+        <div className="relative p-[3px] rounded-[38px] sm:rounded-[44px] overflow-hidden shadow-[0_20px_50px_rgba(139,92,246,0.3)] group">
+
+          {/* Continuous Rotating Conic Laser Ribbon */}
+          <div
+            className="absolute -inset-[100%] animate-border-beam pointer-events-none opacity-90 group-hover:opacity-100 transition-opacity"
+            style={{
+              background:
+                'conic-gradient(from 0deg, transparent 15%, #a855f7 35%, #ec4899 55%, #06b6d4 75%, transparent 100%)',
+            }}
+          />
+
+          {/* Inner Card Body with Dark Glassmorphism */}
+          <div className="relative w-[285px] sm:w-[325px] md:w-[350px] h-[375px] sm:h-[420px] md:h-[445px] rounded-[35px] sm:rounded-[41px] overflow-hidden bg-gradient-to-b from-[#10142b] via-[#0b0e20] to-[#070914] border border-white/10 flex flex-col items-center justify-between p-4">
+
+            {/* Top Bar with Live Status & Mode Switch */}
+            <div className="w-full flex items-center justify-between z-10 pt-1 px-1">
+              {/* Live Status Beacon */}
+              <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/80 border border-white/10 backdrop-blur-md">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
+                </span>
+                <span className="text-[10px] font-semibold text-gray-300 uppercase tracking-wider">
+                  Active
+                </span>
+              </div>
+
+              {/* Avatar Toggle Button (3D Animated <-> Real Photo) */}
+              <button
+                onClick={() => setUseAnimatedAvatar(!useAnimatedAvatar)}
+                className="flex items-center gap-1 px-3 py-1 rounded-full bg-purple-500/15 hover:bg-purple-500/25 border border-purple-500/30 text-[10.5px] font-bold text-purple-300 transition-all hover:scale-105 active:scale-95 shadow-lg shadow-purple-950/40"
+                title="Click to switch between 3D Animated Avatar and Real Photo"
+              >
+                {useAnimatedAvatar ? (
+                  <>
+                    <Camera size={12} className="text-pink-400" />
+                    <span>Real Photo</span>
+                  </>
+                ) : (
+                  <>
+                    <Wand2 size={12} className="text-cyan-400" />
+                    <span>3D Avatar</span>
+                  </>
+                )}
+              </button>
+            </div>
+
+            {/* Profile Image Viewport */}
+            <div className="relative w-full flex-1 my-2 rounded-2xl overflow-hidden bg-slate-950/60 border border-white/5 flex items-center justify-center group-hover:scale-[1.02] transition-transform duration-500">
+              <img
+                src={activePhoto}
+                alt="Bhuvana Chandra — Profile Avatar"
+                className="w-full h-full object-cover object-[center_18%] transition-all duration-700"
+              />
+
+              {/* Holographic Shimmer Scanline */}
+              <div className="absolute inset-x-0 h-16 bg-gradient-to-b from-transparent via-cyan-400/20 to-transparent pointer-events-none animate-holo-scanline" />
+
+              {/* Bottom Subtle Gradient Fade */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#070914] via-transparent to-transparent pointer-events-none opacity-80" />
+            </div>
+
+            {/* Bottom Card Identity & Badge */}
+            <div className="w-full z-10 flex flex-col items-center gap-1 pb-1">
+              <div className="flex items-center gap-1.5">
+                <Sparkles size={13} className="text-yellow-400" />
+                <span className="text-white font-extrabold text-sm sm:text-base tracking-tight">
+                  Bhuvana Chandra
+                </span>
+              </div>
+              <span className="text-[11px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-300 to-cyan-400">
+                CSE-AI Graduate & Full Stack Engineer
+              </span>
+            </div>
+
+          </div>
+        </div>
+
+        {/* ── Floating Cyber Tech Badges with Parallax & Float ── */}
+        <div className="hidden sm:flex absolute -left-10 top-12 px-3.5 py-1.5 rounded-xl bg-slate-900/90 border border-white/10 backdrop-blur-md text-xs font-semibold text-gray-200 items-center gap-2 shadow-2xl shadow-black/70 hover:border-cyan-500/40 transition-colors animate-gentle-float">
+          <span className="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_8px_#22d3ee]" />
+          <span>React.js & TypeScript</span>
+        </div>
+
+        <div
+          className="hidden sm:flex absolute -left-12 bottom-16 px-3.5 py-1.5 rounded-xl bg-slate-900/90 border border-white/10 backdrop-blur-md text-xs font-semibold text-gray-200 items-center gap-2 shadow-2xl shadow-black/70 hover:border-emerald-500/40 transition-colors animate-gentle-float"
+          style={{ animationDelay: '1.5s' }}
+        >
+          <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399]" />
+          <span>Python & FastAPI</span>
+        </div>
+
+        <div
+          className="hidden sm:flex absolute -right-10 top-20 px-3.5 py-1.5 rounded-xl bg-slate-900/90 border border-white/10 backdrop-blur-md text-xs font-semibold text-gray-200 items-center gap-2 shadow-2xl shadow-black/70 hover:border-pink-500/40 transition-colors animate-gentle-float"
+          style={{ animationDelay: '0.8s' }}
+        >
+          <span className="w-2 h-2 rounded-full bg-pink-400 shadow-[0_0_8px_#f472b6]" />
+          <span>AI & Intelligent Systems</span>
+        </div>
+
+        <div
+          className="hidden sm:flex absolute -right-8 bottom-12 px-3.5 py-1.5 rounded-xl bg-slate-900/90 border border-white/10 backdrop-blur-md text-xs font-semibold text-gray-200 items-center gap-2 shadow-2xl shadow-black/70 hover:border-purple-500/40 transition-colors animate-gentle-float"
+          style={{ animationDelay: '2.2s' }}
+        >
+          <span className="w-2 h-2 rounded-full bg-purple-400 shadow-[0_0_8px_#a855f7]" />
+          <span>15+ Real-world Projects</span>
+        </div>
+
+      </div>
+
+      {/* Helper caption */}
+      <p className="mt-4 text-[10.5px] font-bold text-gray-400 tracking-wide flex items-center gap-1.5">
+        <Sparkles size={12} className="text-yellow-400" />
+        Click top-right button to toggle Real Photo / 3D Avatar
+      </p>
+    </div>
+  );
+};
+
+// ── Main Hero Section Component ──────────────────────────────────────────────
 const HeroSection: React.FC = () => {
   const typed = useTypewriter(roles);
 
@@ -228,74 +403,9 @@ const HeroSection: React.FC = () => {
 
           </div>
 
-          {/* ════════ RIGHT COLUMN: CLEAN CIRCULAR PROFILE PORTRAIT ════════ */}
+          {/* ════════ RIGHT COLUMN: ULTRA-STYLISH ANIMATED PROFILE CARD ════════ */}
           <div className="flex-1 flex justify-center items-center w-full z-20">
-            <div className="relative flex items-center justify-center">
-
-              {/* Glowing Background Radial Aura */}
-              <div
-                className="absolute inset-0 rounded-full bg-gradient-to-tr from-purple-600/30 via-pink-600/20 to-cyan-500/20 blur-3xl scale-125 pointer-events-none"
-                aria-hidden="true"
-              />
-
-              {/* Orbital Outer Ring with Subtle Orbital Nodes */}
-              <div className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-88 md:h-88 rounded-full border border-purple-500/25 flex items-center justify-center p-3 shadow-[0_0_50px_rgba(139,92,246,0.15)]">
-
-                {/* Orbit Decorative Nodes */}
-                <div className="absolute top-4 right-8 w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_8px_#22d3ee]" />
-                <div className="absolute bottom-6 left-10 w-2 h-2 rounded-full bg-pink-400 shadow-[0_0_8px_#f472b6]" />
-                <div className="absolute top-1/2 -left-1 w-2.5 h-2.5 rounded-full bg-purple-400 shadow-[0_0_8px_#c084fc]" />
-                <div className="absolute top-1/2 -right-1 w-2.5 h-2.5 rounded-full bg-purple-400 shadow-[0_0_8px_#c084fc]" />
-
-                {/* Inner Gradient Border Ring */}
-                <div className="relative w-full h-full rounded-full p-1 bg-gradient-to-tr from-purple-500 via-pink-500 to-cyan-400 shadow-2xl">
-
-                  {/* Profile Image Container */}
-                  <div className="relative w-full h-full rounded-full overflow-hidden bg-slate-950 border-4 border-[#060713]">
-                    <img
-                      src={personalInfo.profilePhoto}
-                      alt={`${personalInfo.name} — Profile Portrait`}
-                      className="w-full h-full object-cover object-[center_15%] transition-transform duration-500 hover:scale-105"
-                    />
-
-                    {/* Subtle Vignette Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none" />
-                  </div>
-
-                </div>
-
-                {/* Bottom Badge Pill: CSE-AI Graduate */}
-                <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-slate-900/95 border border-purple-500/40 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-2xl shadow-purple-950/80 whitespace-nowrap flex items-center gap-1.5 backdrop-blur-md">
-                  <Sparkles size={13} className="text-purple-400" />
-                  <span>CSE-AI Graduate</span>
-                </div>
-
-              </div>
-
-              {/* Floating Tech Stack Badges around Profile */}
-              <div className="hidden sm:flex absolute -left-10 top-12 px-3 py-1.5 rounded-xl bg-slate-900/90 border border-white/10 backdrop-blur-md text-xs font-semibold text-gray-300 items-center gap-1.5 shadow-xl shadow-black/50 hover:border-purple-500/40 transition-colors">
-                <span className="text-cyan-400 font-mono">&lt;</span>
-                <span>React.js</span>
-                <span className="text-cyan-400 font-mono">/&gt;</span>
-              </div>
-
-              <div className="hidden sm:flex absolute -left-12 bottom-20 px-3 py-1.5 rounded-xl bg-slate-900/90 border border-white/10 backdrop-blur-md text-xs font-semibold text-gray-300 items-center gap-1.5 shadow-xl shadow-black/50 hover:border-purple-500/40 transition-colors">
-                <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                <span>FastAPI</span>
-              </div>
-
-              <div className="hidden sm:flex absolute -right-10 top-20 px-3 py-1.5 rounded-xl bg-slate-900/90 border border-white/10 backdrop-blur-md text-xs font-semibold text-gray-300 items-center gap-1.5 shadow-xl shadow-black/50 hover:border-purple-500/40 transition-colors">
-                <span className="text-pink-400 font-mono">&lt;</span>
-                <span>Node.js</span>
-                <span className="text-pink-400 font-mono">/&gt;</span>
-              </div>
-
-              <div className="hidden sm:flex absolute -right-8 bottom-16 px-3 py-1.5 rounded-xl bg-slate-900/90 border border-white/10 backdrop-blur-md text-xs font-semibold text-gray-300 items-center gap-1.5 shadow-xl shadow-black/50 hover:border-purple-500/40 transition-colors">
-                <span className="w-2 h-2 rounded-full bg-yellow-400" />
-                <span>Python</span>
-              </div>
-
-            </div>
+            <AnimatedProfileCard />
           </div>
 
         </div>

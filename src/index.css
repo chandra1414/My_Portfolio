@@ -52,6 +52,50 @@ body {
     #060713;
 }
 
+/* ---------- Rotating Border Beam for Stylish Avatar Card ---------- */
+@keyframes spinBeam {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-border-beam {
+  animation: spinBeam 5s linear infinite;
+}
+
+/* ---------- Holographic Shimmer Scanline ---------- */
+@keyframes holoScanline {
+  0% {
+    transform: translateY(-120%);
+    opacity: 0;
+  }
+  40%, 60% {
+    opacity: 0.65;
+  }
+  100% {
+    transform: translateY(280%);
+    opacity: 0;
+  }
+}
+.animate-holo-scanline {
+  animation: holoScanline 3.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* ---------- Gentle Avatar Float ---------- */
+@keyframes gentleFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+.animate-gentle-float {
+  animation: gentleFloat 4s ease-in-out infinite;
+}
+
 /* ---------- Hero name gradient ---------- */
 .hero-name-gradient {
   background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 40%, #f472b6 80%, #60a5fa 100%);
