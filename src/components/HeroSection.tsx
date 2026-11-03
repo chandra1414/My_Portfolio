@@ -228,17 +228,17 @@ const HeroSection: React.FC = () => {
       className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden bg-hero-gradient"
       aria-label="Hero section"
     >
-      {/* ── Soft Ambient Background Neon Lighting (Visible & Vibrant across Mobile & Laptop) ── */}
+      {/* ── Soft Ambient Background Neon Lighting (Subtle, Clean & Identical across Mobile & Laptop) ── */}
       <div
-        className="absolute top-12 left-1/2 -translate-x-1/2 sm:top-1/4 sm:left-1/4 w-80 sm:w-[460px] h-80 sm:h-[460px] rounded-full blur-[80px] sm:blur-[120px] opacity-35 sm:opacity-20 bg-purple-600 pointer-events-none"
+        className="absolute top-1/4 left-1/4 w-[340px] sm:w-[460px] h-[340px] sm:h-[460px] rounded-full blur-[100px] sm:blur-[120px] opacity-10 sm:opacity-15 bg-purple-600 pointer-events-none"
         aria-hidden="true"
       />
       <div
-        className="absolute top-1/2 right-0 sm:bottom-1/4 sm:right-1/4 w-72 sm:w-[420px] h-72 sm:h-[420px] rounded-full blur-[80px] sm:blur-[120px] opacity-30 sm:opacity-15 bg-pink-600 pointer-events-none"
+        className="absolute bottom-1/4 right-1/4 w-[320px] sm:w-[420px] h-[320px] sm:h-[420px] rounded-full blur-[100px] sm:blur-[120px] opacity-08 sm:opacity-12 bg-pink-600 pointer-events-none"
         aria-hidden="true"
       />
       <div
-        className="absolute bottom-10 left-0 sm:top-1/2 sm:right-1/3 w-72 sm:w-[380px] h-72 sm:h-[380px] rounded-full blur-[80px] sm:blur-[120px] opacity-25 sm:opacity-15 bg-cyan-600 pointer-events-none"
+        className="absolute top-1/2 right-1/3 w-[300px] sm:w-[380px] h-[300px] sm:h-[380px] rounded-full blur-[100px] sm:blur-[120px] opacity-06 sm:opacity-10 bg-cyan-600 pointer-events-none"
         aria-hidden="true"
       />
 
@@ -301,11 +301,11 @@ const HeroSection: React.FC = () => {
               </span>
             </h1>
 
-            {/* Dynamic Typewriter Role Subtitle (Refined size, smaller than name) */}
+            {/* Dynamic Typewriter Role Subtitle (White text as requested) */}
             <div className="min-h-[34px] mb-5 flex items-center justify-center lg:justify-start">
-              <p className="text-sm sm:text-base md:text-lg font-semibold text-purple-300 tracking-wide flex items-center">
+              <p className="text-sm sm:text-base md:text-lg font-semibold text-white tracking-wide flex items-center drop-shadow-[0_2px_12px_rgba(255,255,255,0.25)]">
                 <span>{typed}</span>
-                <span className="inline-block w-0.5 h-5 bg-gradient-to-b from-purple-400 to-pink-500 align-middle ml-1.5 rounded-full animate-blink shadow-md shadow-purple-500/80" />
+                <span className="inline-block w-0.5 h-5 bg-white align-middle ml-1.5 rounded-full animate-blink shadow-md shadow-white/80" />
               </p>
             </div>
 
